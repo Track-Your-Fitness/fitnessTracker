@@ -39,10 +39,6 @@ HTML, Java, AWS, Android Studio, and CSS will the be components on Github. We ar
 
 ## Project Prep 2
 
-Name:
-
-Fitness Tracker.
-
 Summary: 
 
 Fitness Tracking app where you are able to keep track on what muscle group the user is working on.
