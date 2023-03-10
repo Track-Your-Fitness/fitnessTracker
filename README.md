@@ -53,9 +53,123 @@ MVP: Authorizing the user using auth, implementing S3, adding workouts, and filt
 
 ## Project Prep 4
 
+### User Story #1
 
+User Authentication
 
+User Story
 
+As a user, I want to have an authentication sign up, then login, and log out so that I can have a secured my account with my information.
+
+Feature Tasks
+
+User can successfully sign up.
+
+User can successfully login.
+
+Have the option for signup or log in.
+
+Once the user is logged in, they can log out.
+
+DynamoDB saving data.
+
+Following sign up takes user to login.
+
+Following login user will be taken to their page.
+
+Acceptance Tests
+
+Ensure the user can choose sign up, login, and logout.
+
+Ensure the user can type in the edit text.
+
+Provide an error and success message for signup and login.
+
+Ensure data saved to database.
+
+### User Story 2
+
+Search Workout
+
+User Story
+
+As a user, I want to have the ability to search for workouts.
+
+Feature Tasks
+
+Show the categories for workouts.
+
+Able to select category and workout.
+
+Acceptance Tests
+
+Ensure the category and workout links to correct path.
+
+Ensure API data is displaying.
+
+### User Story 3
+
+Tracking Data
+
+User Story
+
+As a user, I want to be able to save/ keep track of my data.
+
+Feature Tasks
+
+User can input data into input.
+
+User can see saved data.
+
+Ability to edit data.
+
+Acceptance Tests
+
+Provide error  and success message.
+
+Ensure data successfully saved to data base.
+
+### User Story 4
+
+Showing Workout
+
+User Story
+
+As a user, I want to be able to have examples of the work out.
+
+Feature Tasks
+
+Implement API to have access to workout examples.
+
+Successfully retrieving API data.
+
+Acceptance Tests
+
+Providing success and failure log messages.
+
+Ensure the users are able to see the work outs.
+
+### User Story 5
+
+Edit Data
+
+User Story
+
+As a user, I want to be able to edit my data.
+
+Feature Tasks
+
+Allow user to edit username, email, password.
+
+Update username, email, and password when changed.
+
+Display new changed username.
+
+Acceptance Tests
+
+Username, email, and password will change when user changes it in settings
+
+Username will display as changed username after user changes it.
 
 ## WireFrame
 
