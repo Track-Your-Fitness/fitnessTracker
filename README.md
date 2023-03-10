@@ -53,7 +53,7 @@ MVP: Authorizing the user using auth, implementing S3, adding workouts, and filt
 
 ## Project Prep 4
 
-### User Story #1
+### User Story 1
 
 User Authentication
 
