@@ -39,11 +39,19 @@ HTML, Java, AWS, Android Studio, and CSS will the be components on Github. We ar
 
 ## Project Prep 2
 
+Name:
+
 Fitness Tracker.
+
+Summary: 
 
 Fitness Tracking app where you are able to keep track on what muscle group the user is working on.
 
+Pain Point: 
+
 Where the user is able to work on different muscle groups and track their work out throughout the week. A personalized page to sign up so they can be authorized. Keep track of their progress and look at locations to different gyms that are nearest to the user.
+
+Minimum Viable Product (MVP):
 
 MVP: Authorizing the user using auth, implementing S3, adding workouts, and filter workouts by muscle group.
 
