@@ -197,7 +197,7 @@ Minimum Viable Product vs
 
 What will your MVP functionality be?
 
-Create an account with AWS Cognito. View, and create new workouts. Filter workouts by muscle group. Delete workouts. 
+Create an account with AWS Cognito with authorization. View and create new workouts. Filter workouts by muscle group. Delete workouts. 
 
 What are your stretch goals?
 
