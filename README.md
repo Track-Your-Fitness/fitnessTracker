@@ -171,38 +171,96 @@ Username, email, and password will change when user changes it in settings
 
 Username will display as changed username after user changes it.
 
+Software Requirement
+
+Vision
+
+The vision of this product is for a “fun” interactive way, to allow people to sign up for a fitness tracker app, create workouts, follow workouts, and track progress.
+
+The pain point this project solves is for users having to keep track of their workouts and find exercises for workouts on their own. They may do it easily and conveniently on one app. This project is great to improve the health and well being of users, while presenting it in a creative app.
+
+Scope (In/Out)
+
+IN - What will your product do
+
+App will allow users to create an account with AWS  Cognito.
+
+A person may search for workouts to do and save those workouts to their plan.
+
+A person may see workout examples performed. 
+
+OUT - What will your product not do?
+
+Will not offer nutrition information. 
+
+Minimum Viable Product vs
+
+What will your MVP functionality be?
+
+Create an account with AWS Cognito. View, and create new workouts. Filter workouts by muscle group. Delete workouts. 
+
+What are your stretch goals?
+
+Stretch goals include, a nutrition tracker, a workout calendar, and a location tracker. 
+
+Stretch
+
+Nutrition tracker, and workout calendar. 
+
+Functional Requirements
+
+List the functionality of your product. This will consist of tasks such as the following:
+
+An admin can create and delete user accounts.
+
+A user can update their profile information.
+
+A user can search for different workouts by body group or exercise type. 
+
+A user may save those workouts to their personal workout plan. 
+
+A user may track their reps, for workouts. 
+
+A user may add images of their workout. 
+
+Data Flow
+When a user opens the app, they are taken to the base page, where they may either sign up, if they haven’t already, or they may log in, if they have already signed up. If they are newly signing up, they will be taken to the sign up page to input their information. Afterwards, they will be taken back to the sign in page, to sign in. From there, they will be redirected to the home page after signing in. At the home page, users will be able to directly begin to look for workouts they would like to perform. There will be access here, to take users to a settings page where they may update profile information, workout category page, and the current users workouts page.
+
+Non-Functional Requirements :
+
+Security with AWS Cognito
+
+Location access
+
+S3 to upload images
+
+UI/UX (usability, and ease of use of the app)
+
+Proper encapsulation
+
+Testing with Espresso
+
+Security with AWS Cognito will be used to allow secure login to users accounts. Testing with Espresso will be used to test for desired functionality. 
+
 ## WireFrame
 
-
-
-
-
+<img width="630" alt="WireFrame" src="https://user-images.githubusercontent.com/115438182/224453799-653f1bf0-e6a5-4c1e-9b9b-c7fa2df0180e.png">
 
 ## Data Base
 
-
-
-
-
-
+<img width="730" alt="Database" src="https://user-images.githubusercontent.com/115438182/224453834-083c3e05-d124-4c0f-992d-f5510c466580.png">
 
 ## Schema
 
-
-
-
-
+<img width="484" alt="db1" src="https://user-images.githubusercontent.com/115438182/224453955-a292466f-c68e-471b-871c-db309bcb7924.png">
+<img width="719" alt="db2" src="https://user-images.githubusercontent.com/115438182/224453959-38f5242f-a306-4b87-a41b-a87d2dc4963d.png">
 
 ## WRRC
 
-
-
-
-
-
-
+<img width="1069" alt="WRRC" src="https://user-images.githubusercontent.com/115438182/224453887-05fb23c2-f478-4f77-b07d-0a106cb9b2fe.png">
 
 # Tutorial
+
 
 
 
