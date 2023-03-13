@@ -12,34 +12,34 @@
         android:theme="@style/Theme.Fitness"
         tools:targetApi="31">
         <activity
-            android:name=".activites.Activites.UserProfileActivity"
+            android:name=".activities.Activities.UserProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".activites.Activites.UserSettingsActivity"
+            android:name=".activities.Activities.UserSettingsActivity"
             android:exported="false" />
         <activity
-            android:name=".activites.AuthActivites.LoginActivity"
+            android:name=".activities.AuthActivites.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".activites.AuthActivites.SignUpActivity"
+            android:name=".activities.AuthActivites.SignUpActivity"
             android:exported="false" />
         <activity
-            android:name=".activites.AuthActivites.VerifySignUpActivity"
+            android:name=".activities.AuthActivites.VerifySignUpActivity"
             android:exported="false" />
         <activity
-            android:name=".activites.UserWorkout.WorkOutCategoryActivity"
+            android:name=".activities.UserWorkout.WorkOutCategoryActivity"
             android:exported="false" />
         <activity
-            android:name=".activites.UserWorkout.UserWorkoutActivity"
+            android:name=".activities.UserWorkout.UserWorkoutActivity"
             android:exported="false" />
         <activity
-            android:name=".activites.UserWorkout.SelectedWorkoutActivity"
+            android:name=".activities.UserWorkout.SelectedWorkoutActivity"
             android:exported="false" />
         <activity
-            android:name=".activites.Activites.SelectedCategoryActivity"
+            android:name=".activities.UserWorkout.SelectedCategoryActivity"
             android:exported="false" />
         <activity
-            android:name=".activites.Activites.MainActivity"
+            android:name=".activities.Activities.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
