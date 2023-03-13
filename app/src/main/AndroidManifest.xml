@@ -12,6 +12,33 @@
         android:theme="@style/Theme.Fitness"
         tools:targetApi="31">
         <activity
+            android:name=".UserProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UserSettingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SignUpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".VerifySignUpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".WorkOutCategoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UserWorkoutActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SelectedWorkoutActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SelectedCategoryActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
