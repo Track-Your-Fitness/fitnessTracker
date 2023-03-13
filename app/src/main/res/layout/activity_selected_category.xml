@@ -6,4 +6,24 @@
     android:layout_height="match_parent"
     tools:context="com.example.fitnessTracker.activities.UserWorkout.SelectedCategoryActivity">
 
+    <ImageView
+        android:id="@+id/SelectedCategoryBackButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="?attr/homeAsUpIndicator" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="42dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="24dp"
+        android:text="Back"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/SelectedCategoryBackButton"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
