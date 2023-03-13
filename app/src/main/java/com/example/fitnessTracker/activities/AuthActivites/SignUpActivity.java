@@ -1,4 +1,4 @@
-package com.example.fitnessTracker.activites.UserWorkout;
+package com.example.fitnessTracker.activities.AuthActivites;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,11 +7,11 @@ import android.os.Bundle;
 import com.example.fitnessTracker.R;
 
 
-public class WorkOutCategoryActivity extends AppCompatActivity {
+public class SignUpActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_work_out_category);
+        setContentView(R.layout.activity_sign_up);
     }
 }

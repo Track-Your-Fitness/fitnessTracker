@@ -4,6 +4,104 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.fitnessTracker.activites.Activites.UserProfileActivity">
+    tools:context="com.example.fitnessTracker.activities.Activities.UserProfileActivity">
+
+    <ImageView
+        android:id="@+id/UserProfileImageViewUserImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="57dp"
+        android:layout_marginTop="67dp"
+        android:contentDescription="@string/userImage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/UserProfileTextViewName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="97dp"
+        android:text="@string/name"
+        app:layout_constraintStart_toEndOf="@+id/UserProfileImageViewUserImage"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/UserProfileTextViewWeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="19dp"
+        android:text="@string/weight"
+        app:layout_constraintStart_toEndOf="@+id/UserProfileImageViewUserImage"
+        app:layout_constraintTop_toBottomOf="@+id/UserProfileTextViewAge" />
+
+    <TextView
+        android:id="@+id/UserProfileTextViewAge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="14dp"
+        android:text="@string/age"
+        app:layout_constraintStart_toEndOf="@+id/UserProfileImageViewUserImage"
+        app:layout_constraintTop_toBottomOf="@+id/UserProfileTextViewName" />
+
+    <TextView
+        android:id="@+id/UserProfileTextViewFitnessGoal"
+        android:layout_width="309dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/fitnessGoal"
+        app:layout_constraintBottom_toTopOf="@+id/UserProfileTextViewInspirationalQuote"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/UserProfileEditTextCurrentWeight"
+        android:layout_width="100dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="31dp"
+        android:ems="10"
+        android:hint="@string/currentWeight"
+        android:importantForAutofill="no"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/UserProfileEditTextTargetWeight"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/UserProfileEditTextTargetWeight"
+        android:layout_width="100dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="61dp"
+        android:ems="10"
+        android:hint="@string/targetWeight"
+        android:importantForAutofill="no"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/UserProfileTextViewFitnessGoal"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:contentDescription="@string/settingsButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_manage" />
+
+    <TextView
+        android:id="@+id/UserProfileTextViewInspirationalQuote"
+        android:layout_width="307dp"
+        android:layout_height="87dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="156dp"
+        android:text="@string/inspiration"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
