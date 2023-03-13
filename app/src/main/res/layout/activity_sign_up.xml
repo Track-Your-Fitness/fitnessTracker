@@ -6,4 +6,64 @@
     android:layout_height="match_parent"
     tools:context="com.example.fitnessTracker.activities.AuthActivites.SignUpActivity">
 
+    <TextView
+        android:id="@+id/signUpActivityTitleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="168dp"
+        android:layout_marginTop="69dp"
+        android:text="@string/signUpTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/signUpActivitySignUpButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/signUpButtonSignUp"
+        tools:layout_editor_absoluteX="159dp"
+        tools:layout_editor_absoluteY="600dp" />
+
+    <EditText
+        android:id="@+id/signUpPasswordEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:layout_marginEnd="101dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signUpEmailEditText" />
+
+    <EditText
+        android:id="@+id/signUpEmailEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="92dp"
+        android:layout_marginEnd="101dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signUpActivityTitleTextView" />
+
+    <TextView
+        android:id="@+id/signUpActivityEmailTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginBottom="68dp"
+        android:text="@string/signUpEmailTextView"
+        app:layout_constraintBottom_toTopOf="@+id/signUpActivityPasswordTextView"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/signUpActivityPasswordTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginBottom="416dp"
+        android:text="@string/signUpPasswordTextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,4 +12,13 @@
     <string name="weight">Weight</string>
     <string name="currentWeight">Current Weight</string>
     <string name="targetWeight">Target Weight</string>
+    <string name="signUpButton">Sign Up</string>
+    <string name="loginButton">Log In</string>
+    <string name="loginTitle">Log In</string>
+    <string name="loginEmailEditText">Email</string>
+    <string name="loginPasswordTextView">Password</string>
+    <string name="signUpTitle">Sign Up</string>
+    <string name="signUpButtonSignUp">Sign Up</string>
+    <string name="signUpEmailTextView">Email</string>
+    <string name="signUpPasswordTextView">Password</string>
 </resources>
