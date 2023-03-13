@@ -4,7 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import com.example.fitness.R;
+import com.example.fitnessTracker.R;
+
 
 public class UserProfileActivity extends AppCompatActivity {
 

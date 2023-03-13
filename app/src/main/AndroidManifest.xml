@@ -12,34 +12,34 @@
         android:theme="@style/Theme.Fitness"
         tools:targetApi="31">
         <activity
-            android:name=".UserProfileActivity"
+            android:name=".activites.Activites.UserProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".UserSettingsActivity"
+            android:name=".activites.Activites.UserSettingsActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".activites.AuthActivites.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".SignUpActivity"
+            android:name=".activites.AuthActivites.SignUpActivity"
             android:exported="false" />
         <activity
-            android:name=".VerifySignUpActivity"
+            android:name=".activites.AuthActivites.VerifySignUpActivity"
             android:exported="false" />
         <activity
-            android:name=".WorkOutCategoryActivity"
+            android:name=".activites.UserWorkout.WorkOutCategoryActivity"
             android:exported="false" />
         <activity
-            android:name=".UserWorkoutActivity"
+            android:name=".activites.UserWorkout.UserWorkoutActivity"
             android:exported="false" />
         <activity
-            android:name=".SelectedWorkoutActivity"
+            android:name=".activites.UserWorkout.SelectedWorkoutActivity"
             android:exported="false" />
         <activity
-            android:name=".SelectedCategoryActivity"
+            android:name=".activites.Activites.SelectedCategoryActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activites.Activites.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

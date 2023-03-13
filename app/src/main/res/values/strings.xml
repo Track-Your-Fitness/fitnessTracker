@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Fitness</string>
+    <string name="settingsBtn">Navigate to user settings</string>
+    <string name="UserProfile">User Profile</string>
+    <string name="LogoutBtn">Log Out</string>
 </resources>
