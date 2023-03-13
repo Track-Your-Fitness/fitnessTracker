@@ -1,4 +1,4 @@
-package com.example.fitnessTracker;
+package com.example.fitnessTracker.activites.Activites;
 
 import androidx.appcompat.app.AppCompatActivity;
 
