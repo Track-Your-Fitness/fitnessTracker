@@ -6,4 +6,22 @@
     android:layout_height="match_parent"
     tools:context="com.example.fitnessTracker.activities.UserWorkout.UserWorkoutActivity">
 
+    <TextView
+        android:id="@+id/UserWorkoutTextViewCurrentWorkout"
+        android:layout_width="174dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="118dp"
+        android:layout_marginTop="129dp"
+        android:text="@string/currentWorkouts"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/UserWorkoutsRecyclerViewCurrentWorkouts"
+        android:layout_width="385dp"
+        android:layout_height="442dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/UserWorkoutTextViewCurrentWorkout" />
 </androidx.constraintlayout.widget.ConstraintLayout>
