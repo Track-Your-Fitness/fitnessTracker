@@ -4,7 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+
 import android.os.StrictMode;
+
+import android.widget.Button;
+
 import android.widget.EditText;
 import android.widget.ImageView;
 
@@ -14,7 +18,7 @@ import java.io.IOException;
 
 
 public class MainActivity extends AppCompatActivity {
-
+    public static final String USER_INPUT_EXTRA_TAG = "userInput";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,10 +36,17 @@ public class MainActivity extends AppCompatActivity {
 //            goToUserSettingsIntent.putExtra(, userInput);
             startActivity(goToUserSettingsIntent);
         });
+
         try {
             Call categoryCall = new Call();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
+        Button userProfileButton = (Button) findViewById(R.id.MainActivityUserProfileBtn);
+        userProfileButton.setOnClickListener(v -> {
+            Intent goToAddTaskFromIntent = new Intent(this, UserProfileActivity.class);
+            startActivity(goToAddTaskFromIntent);
+        });
     }
 }
