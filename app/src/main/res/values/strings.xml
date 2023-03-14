@@ -21,4 +21,8 @@
     <string name="signUpButtonSignUp">Sign Up</string>
     <string name="signUpEmailTextView">Email</string>
     <string name="signUpPasswordTextView">Password</string>
+    <string name="sugnUpNameTestView">Name</string>
+    <string name="verifySignUpTextView">Verify Sign Up</string>
+    <string name="verifySignUpButton">Submit</string>
+    <string name="verifySignUpConCodeTextView">Confirmation Code</string>
 </resources>

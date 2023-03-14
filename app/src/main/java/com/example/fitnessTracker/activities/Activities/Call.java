@@ -1,4 +1,4 @@
-package com.example.fitnessTracker.activites.Activites;
+package com.example.fitnessTracker.activities.Activities;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.UnsupportedEncodingException;
-import java.net.HttpCookie;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
@@ -14,8 +13,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
-
 
 
 public class Call {
@@ -38,8 +35,9 @@ public class Call {
         out.flush();
         out.close();
 
-        con.setRequestProperty("Content-Type", "application/json");
-        String contentType = con.getHeaderField("Content-Type");
+        con.setRequestProperty("X-RapidAPI-Host", "exercises2.p.rapidapi.com");
+        con.setRequestProperty("X-RapidAPI-Key", "0c2becdfa7mshb9a3c113775cbdep163e0djsn8543d4ba6d1a");
+//        String contentType = con.getHeaderField("Content-Type");
 
         con.setConnectTimeout(5000);
         con.setReadTimeout(5000);
