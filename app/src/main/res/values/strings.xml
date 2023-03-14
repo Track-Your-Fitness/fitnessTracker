@@ -12,11 +12,4 @@
     <string name="weight">Weight</string>
     <string name="currentWeight">Current Weight</string>
     <string name="targetWeight">Target Weight</string>
-    <string name="nameInput">Name</string>
-    <string name="nameTV">Name</string>
-    <string name="userName">Username</string>
-    <string name="Age">Age</string>
-    <string name="Weight">Weight</string>
-    <string name="save">Save</string>
-    <string name="Height">Height</string>
 </resources>
