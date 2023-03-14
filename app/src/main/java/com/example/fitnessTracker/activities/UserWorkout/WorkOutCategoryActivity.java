@@ -7,7 +7,9 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
 import com.example.fitnessTracker.R;
+
 import com.example.fitnessTracker.activities.Activities.MainActivity;
+
 
 
 public class WorkOutCategoryActivity extends AppCompatActivity {
@@ -21,7 +23,7 @@ public class WorkOutCategoryActivity extends AppCompatActivity {
     }
 
 
-    public void intentButtons(){
+    public void intentButtons() {
         Button selectedCategoryIntentButton = (Button) findViewById(R.id.GoToSelectedCategoryButton);
         selectedCategoryIntentButton.setOnClickListener(v -> {
             Intent goToSelectedCategoryIntent = new Intent(this, SelectedCategoryActivity.class);

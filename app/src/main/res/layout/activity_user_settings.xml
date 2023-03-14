@@ -6,16 +6,6 @@
     android:layout_height="match_parent"
     tools:context="com.example.fitnessTracker.activities.Activities.UserSettingsActivity">
 
-    <Button
-        android:id="@+id/UserSettingsActivitySaveBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="140dp"
-        android:layout_marginTop="88dp"
-        android:text="@string/save"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/UserSettingsActivityHt" />
-
     <EditText
         android:id="@+id/UserSettingsActivityUserName"
         android:layout_width="wrap_content"
@@ -54,7 +44,6 @@
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/UserSettingsActivityAge" />
-
     <EditText
         android:id="@+id/UserSettingsActivityHt"
         android:layout_width="wrap_content"
@@ -67,4 +56,15 @@
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/UserSettingsActivityWtInput" />
+
+    <Button
+        android:id="@+id/UserSettingsActivitySaveBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="88dp"
+        android:text="@string/save"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/UserSettingsActivityHt" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
