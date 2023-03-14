@@ -16,17 +16,6 @@
         app:layout_constraintTop_toBottomOf="@+id/textView"
         tools:srcCompat="@tools:sample/avatars" />
 
-    <ImageView
-        android:id="@+id/WorkOutCategoryBackButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:tint="#EC200E"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="?attr/homeAsUpIndicator" />
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="178dp"
@@ -49,14 +38,15 @@
         app:layout_constraintTop_toBottomOf="@+id/textView"
         tools:srcCompat="@tools:sample/avatars" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="42dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="24dp"
-        android:text="Back"
-        android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@+id/WorkOutCategoryBackButton"
-        app:layout_constraintTop_toTopOf="parent" />
+    <Button
+        android:id="@+id/GoToSelectedCategoryButton"
+        android:layout_width="149dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="41dp"
+        android:text="GO TO EXERCISES"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
