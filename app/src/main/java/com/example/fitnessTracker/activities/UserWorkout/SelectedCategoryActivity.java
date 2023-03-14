@@ -14,4 +14,12 @@ public class SelectedCategoryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selected_category);
     }
+
+    public void intentButtons(){
+//        ImageView selectedWorkoutIntentButton = (ImageView) findViewById(R.id.);
+//        selectedWorkoutIntentButton.setOnClickListener(v -> {
+//            Intent goToSelectedWorkoutIntent = new Intent(this, SelectedWorkout.class);
+//            startActivity(goToSelectedWorkoutIntent);
+//        });
+    }
 }

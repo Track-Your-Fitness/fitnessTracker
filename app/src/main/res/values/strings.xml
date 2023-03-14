@@ -13,6 +13,12 @@
     <string name="currentWeight">Current Weight</string>
     <string name="targetWeight">Target Weight</string>
 <<<<<<< HEAD
+    <string name="save">save</string>
+    <string name="userName">Username</string>
+    <string name="Weight">Weight</string>
+    <string name="Height">Height</string>
+=======
+<<<<<<< HEAD
     <string name="signUpButton">Sign Up</string>
     <string name="loginButton">Log In</string>
     <string name="loginTitle">Log In</string>
@@ -34,5 +40,6 @@
     <string name="Weight">Weight</string>
     <string name="save">Save</string>
     <string name="Height">Height</string>
+>>>>>>> staging
 >>>>>>> staging
 </resources>
