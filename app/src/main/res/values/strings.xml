@@ -12,6 +12,21 @@
     <string name="weight">Weight</string>
     <string name="currentWeight">Current Weight</string>
     <string name="targetWeight">Target Weight</string>
+<<<<<<< HEAD
+    <string name="signUpButton">Sign Up</string>
+    <string name="loginButton">Log In</string>
+    <string name="loginTitle">Log In</string>
+    <string name="loginEmailEditText">Email</string>
+    <string name="loginPasswordTextView">Password</string>
+    <string name="signUpTitle">Sign Up</string>
+    <string name="signUpButtonSignUp">Sign Up</string>
+    <string name="signUpEmailTextView">Email</string>
+    <string name="signUpPasswordTextView">Password</string>
+    <string name="sugnUpNameTestView">Name</string>
+    <string name="verifySignUpTextView">Verify Sign Up</string>
+    <string name="verifySignUpButton">Submit</string>
+    <string name="verifySignUpConCodeTextView">Confirmation Code</string>
+=======
     <string name="nameInput">Name</string>
     <string name="nameTV">Name</string>
     <string name="userName">Username</string>
@@ -19,4 +34,5 @@
     <string name="Weight">Weight</string>
     <string name="save">Save</string>
     <string name="Height">Height</string>
+>>>>>>> staging
 </resources>
