@@ -64,5 +64,6 @@ public void intentButtons() {
         Intent goToUserSettingsIntent = new Intent(this, UserSettingsActivity.class);
         startActivity(goToUserSettingsIntent);
     });
+
 }
 }
