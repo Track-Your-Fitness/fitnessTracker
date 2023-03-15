@@ -14,6 +14,9 @@
     "categories": {
       "api": {
         "fitnesstracker": {}
+      },
+      "auth": {
+        "fitnesstrackerf20f576b": {}
       }
     }
   }

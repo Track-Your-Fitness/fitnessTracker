@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
+        android:name=".activities.FitnessTrackerAmplifyApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -21,15 +22,21 @@
         <activity
             android:name=".activities.Activities.UserSettingsActivity"
             android:exported="false" />
-<!--        <activity-->
-<!--            android:name=".activities.AuthActivites.LoginActivity"-->
-<!--            android:exported="false" />-->
-<!--        <activity-->
-<!--            android:name=".activities.AuthActivites.SignUpActivity"-->
-<!--            android:exported="false" />-->
-<!--        <activity-->
-<!--            android:name=".activities.AuthActivites.VerifySignUpActivity"-->
-<!--            android:exported="false" />-->
+        <activity
+            android:name=".activities.AuthActivites.LoginActivity"
+            android:exported="true" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.AuthActivites.SignUpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.AuthActivites.VerifySignUpActivity"
+            android:exported="false" />
         <activity
             android:name=".activities.UserWorkout.WorkOutCategoryActivity"
             android:exported="false" />
@@ -44,12 +51,8 @@
             android:exported="false" />
         <activity
             android:name=".activities.Activities.MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="false">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 
