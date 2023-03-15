@@ -19,15 +19,15 @@
         <activity
             android:name=".activities.Activities.UserSettingsActivity"
             android:exported="false" />
-        <activity
-            android:name=".activities.AuthActivites.LoginActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.AuthActivites.SignUpActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.AuthActivites.VerifySignUpActivity"
-            android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".activities.AuthActivites.LoginActivity"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".activities.AuthActivites.SignUpActivity"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".activities.AuthActivites.VerifySignUpActivity"-->
+<!--            android:exported="false" />-->
         <activity
             android:name=".activities.UserWorkout.WorkOutCategoryActivity"
             android:exported="false" />

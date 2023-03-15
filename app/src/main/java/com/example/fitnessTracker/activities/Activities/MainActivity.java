@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 public void intentButtons() {
-    Button userProfileButton = (Button) findViewById(R.id.MainActivityUserProfileBtn);
+    ImageView userProfileButton = (ImageView) findViewById(R.id.MainActivityUserProfileBtn);
     userProfileButton.setOnClickListener(v -> {
         Intent goToUserProfileIntent = new Intent(this, UserProfileActivity.class);
         startActivity(goToUserProfileIntent);
@@ -54,5 +54,6 @@ public void intentButtons() {
         Intent goToUserSettingsIntent = new Intent(this, UserSettingsActivity.class);
         startActivity(goToUserSettingsIntent);
     });
+
 }
 }

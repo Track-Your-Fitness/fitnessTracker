@@ -20,6 +20,8 @@ public class UserSettingsActivity extends AppCompatActivity {
     public static final String USER_AGE_TAG = "age";
     public static final String USER_WEIGHT_TAG = "weight";
     public static final String USER_HEIGHT_TAG = "height";
+    public static final String USER_TARGET_WEIGHT_TAG = "targetWeight";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +62,8 @@ public class UserSettingsActivity extends AppCompatActivity {
         EditText userNameEditText = (EditText) findViewById(R.id.UserSettingsActivityUserName);
         EditText userAgeEditText = (EditText) findViewById(R.id.UserSettingsActivityAge);
         EditText userWeightEditText = (EditText) findViewById(R.id.UserSettingsActivityWtInput);
+        EditText userTargetWeightEditText = (EditText) findViewById(R.id.UserSettingsTargetWeight);
+
         EditText userHeightEditText = (EditText) findViewById(R.id.UserSettingsActivityHt);
         saveButton.setOnClickListener(v -> {
             String userNameString = userNameEditText.getText().toString();
@@ -67,11 +71,13 @@ public class UserSettingsActivity extends AppCompatActivity {
             String userWeightString = userWeightEditText.getText().toString();
             String userHeightString = userHeightEditText.getText().toString();
             SharedPreferences.Editor preferencesEditor = preferences.edit();
+            String userTargetWeightString = userTargetWeightEditText.getText().toString();
 
             preferencesEditor.putString(USER_NAME_TAG, userNameString);
             preferencesEditor.putString(USER_AGE_TAG, userAgeString);
             preferencesEditor.putString(USER_WEIGHT_TAG, userWeightString);
             preferencesEditor.putString(USER_HEIGHT_TAG, userHeightString);
+            preferencesEditor.putString(USER_TARGET_WEIGHT_TAG, userTargetWeightString);
             preferencesEditor.apply();
 
             Toast.makeText(UserSettingsActivity.this, "Settings saved!", Toast.LENGTH_SHORT).show();

@@ -12,13 +12,6 @@
     <string name="weight">Weight</string>
     <string name="currentWeight">Current Weight</string>
     <string name="targetWeight">Target Weight</string>
-<<<<<<< HEAD
-    <string name="save">save</string>
-    <string name="userName">Username</string>
-    <string name="Weight">Weight</string>
-    <string name="Height">Height</string>
-=======
-<<<<<<< HEAD
     <string name="signUpButton">Sign Up</string>
     <string name="loginButton">Log In</string>
     <string name="loginTitle">Log In</string>
@@ -32,7 +25,6 @@
     <string name="verifySignUpTextView">Verify Sign Up</string>
     <string name="verifySignUpButton">Submit</string>
     <string name="verifySignUpConCodeTextView">Confirmation Code</string>
-=======
     <string name="nameInput">Name</string>
     <string name="nameTV">Name</string>
     <string name="userName">Username</string>
@@ -40,6 +32,7 @@
     <string name="Weight">Weight</string>
     <string name="save">Save</string>
     <string name="Height">Height</string>
->>>>>>> staging
->>>>>>> staging
+    <string name="height">Height</string>
+    <string name="SaveW">Save</string>
+    <string name="target">Target Weight</string>
 </resources>
