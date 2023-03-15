@@ -37,5 +37,11 @@
     <string name="SaveW">Save</string>
     <string name="target">Target Weight</string>
     <string name="currentWorkouts">Current Workout</string>
+    <string name="nameTVUserProfile">Name</string>
+    <string name="agetv">Age</string>
+    <string name="usernametv">Username</string>
+    <string name="weighttv">Weight</string>
+    <string name="heighttv">Height</string>
+    <string name="targetWeightTv">Target Weight</string>
 
 </resources>
