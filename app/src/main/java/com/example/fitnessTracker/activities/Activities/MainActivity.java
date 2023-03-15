@@ -1,13 +1,20 @@
 package com.example.fitnessTracker.activities.Activities;
+import static com.example.fitnessTracker.activities.Activities.UserSettingsActivity.USER_NAME_TAG;
+
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.os.StrictMode;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+
+import com.amplifyframework.auth.AuthUser;
+import com.amplifyframework.core.Amplify;
 import com.example.fitnessTracker.R;
+import com.example.fitnessTracker.activities.AuthActivites.LoginActivity;
 import com.example.fitnessTracker.activities.UserWorkout.SelectedCategoryActivity;
 import com.example.fitnessTracker.activities.UserWorkout.UserWorkoutActivity;
 import com.example.fitnessTracker.activities.UserWorkout.WorkOutCategoryActivity;
@@ -47,11 +54,14 @@ import java.util.Properties;
 
 public class MainActivity extends AppCompatActivity {
 
+    SharedPreferences preferences;
 
+    AuthUser authUser;
+    Button logoutButton;
     //extracts from local.properties, else "".
-    String apiKeyForAPI = getApiKey();
 
 
+    public static final String TAG = "mainActivity";
     public static final String USER_INPUT_EXTRA_TAG = "userInput";
     public static final String USER_USERNAME_TAG = "userName";
 
@@ -61,11 +71,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        preferences = PreferenceManager.getDefaultSharedPreferences(this);
 
         apiRequesterWithHeaders();
 
-        intentButtons();
+        logoutButton = findViewById(R.id.MainActivityLogoOutBtn);
 
+        intentButtons();
 
         if (android.os.Build.VERSION.SDK_INT > 9) {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -84,15 +96,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    /**
-     * Method that will use rapidapi to get content. log.d will show what is being extracted when running program.
-     * @throws NullPointerException if url is null.
-     */
+
     private void apiRequesterWithHeaders(){
         RequestQueue queue = Volley.newRequestQueue(this);
         //do not need this (only used this to explain its from field variable).
         String url = "https://exercises2.p.rapidapi.com/"; //TODO: need to add a meaningful request otherwise this will return the whole dom!
-        String apiKey = this.apiKeyForAPI;
+        String apiKey = "205fe69fc7msh9938514ab2ba523p1bca7cjsnc28159e1568b";
         StringRequest getRequest = new StringRequest(Request.Method.GET, url,
                 response -> {
                     // response
@@ -150,18 +159,7 @@ public class MainActivity extends AppCompatActivity {
      * Extracts api key from local.properties.
      * @return string - api value from local.properties otherwise empty string.
      */
-    public String getApiKey(){
-        Properties props = new Properties();
-        String apiKey = "";
-        try {
-            InputStream inputStream = new FileInputStream(new File("local.properties"));
-            props.load(inputStream);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        apiKey = props.getProperty("api.key");
-        return apiKey;
-    }
+
 
 
     @Override
@@ -173,7 +171,19 @@ public class MainActivity extends AppCompatActivity {
         ((TextView)findViewById(R.id.MainUsernameDisplay)).setText(userName);
     }
 
+
+    public void renderButtons() {
+
+        if (authUser != null) {
+            logoutButton.setVisibility(View.VISIBLE);
+        } else {
+            logoutButton.setVisibility(View.INVISIBLE);
+        }
+    }
+
 public void intentButtons() {
+
+    final String[] username = {preferences.getString(USER_NAME_TAG, "no username")};
 
     ImageView userProfileButton = (ImageView) findViewById(R.id.MainActivityUserProfileBtn);
     userProfileButton.setOnClickListener(v -> {
@@ -196,6 +206,24 @@ public void intentButtons() {
         startActivity(goToUserSettingsIntent);
     });
 
+    Amplify.Auth.getCurrentUser(
+            success -> {
+                Log.i(TAG, "Got Current User");
+                username[0] = success.getUsername();
+            },
+            failure -> {
+            }
+    );
+
+    logoutButton.setOnClickListener(v -> Amplify.Auth.signOut(
+            success -> {
+                Log.i(TAG, "User successfully logged out.");
+                authUser = null;
+                runOnUiThread(this::renderButtons);
+                Intent goToLoginActivityIntent = new Intent(this, LoginActivity.class);
+                startActivity(goToLoginActivityIntent);
+            }
+    ));
 }
 
 }
