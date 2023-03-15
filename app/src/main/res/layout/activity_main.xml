@@ -49,4 +49,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/MainActivityUserProfileBtn" />
 
+    <TextView
+        android:id="@+id/apiTextView"
+        android:layout_width="143dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="173dp"
+        android:layout_marginBottom="209dp"
+        android:text="@string/apiTextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
