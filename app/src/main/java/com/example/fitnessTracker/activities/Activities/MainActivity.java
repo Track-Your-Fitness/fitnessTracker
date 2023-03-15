@@ -17,7 +17,7 @@ import com.example.fitnessTracker.activities.UserWorkout.WorkOutCategoryActivity
 public class MainActivity extends AppCompatActivity {
 
 
-    public static final String USER_INPUT_EXTRA_TAG = "userInput"; 
+    public static final String USER_INPUT_EXTRA_TAG = "userInput";
     public static final String USER_USERNAME_TAG = "userName";
 
     @Override
