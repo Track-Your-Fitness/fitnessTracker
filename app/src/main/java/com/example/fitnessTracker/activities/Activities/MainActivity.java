@@ -5,13 +5,13 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.widget.Button;
 import android.os.StrictMode;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.example.fitnessTracker.R;
-import java.io.IOException;
+import com.example.fitnessTracker.activities.UserWorkout.SelectedCategoryActivity;
+import com.example.fitnessTracker.activities.UserWorkout.UserWorkoutActivity;
+import com.example.fitnessTracker.activities.UserWorkout.WorkOutCategoryActivity;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -44,10 +44,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
 public void intentButtons() {
-    Button userProfileButton = (Button) findViewById(R.id.MainActivityUserProfileBtn);
+    ImageView userProfileButton = (ImageView) findViewById(R.id.MainActivityUserProfileBtn);
     userProfileButton.setOnClickListener(v -> {
         Intent goToUserProfileIntent = new Intent(this, UserProfileActivity.class);
         startActivity(goToUserProfileIntent);
+    });
+    ImageView selectWorkoutButton = (ImageView) findViewById(R.id.SelectWorkoutButton);
+    selectWorkoutButton.setOnClickListener(v -> {
+        Intent goToSelectWorkoutIntent = new Intent(this, WorkOutCategoryActivity.class);
+        startActivity(goToSelectWorkoutIntent);
+    });
+    ImageView userPastWorkoutsButton = (ImageView) findViewById(R.id.MainActivityYourWorkoutBttn);
+    userPastWorkoutsButton.setOnClickListener(v -> {
+        Intent goToUserWorkoutIntent = new Intent(this, UserWorkoutActivity.class);
+        startActivity(goToUserWorkoutIntent);
     });
     ImageView userSettingsButton = (ImageView) findViewById(R.id.MainActivitySettingsImg);
     userSettingsButton.setOnClickListener(v -> {
