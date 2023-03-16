@@ -9,10 +9,7 @@ import java.util.Objects;
 
 import androidx.core.util.ObjectsCompat;
 
-import com.amplifyframework.core.model.AuthStrategy;
 import com.amplifyframework.core.model.Model;
-import com.amplifyframework.core.model.ModelOperation;
-import com.amplifyframework.core.model.annotations.AuthRule;
 import com.amplifyframework.core.model.annotations.Index;
 import com.amplifyframework.core.model.annotations.ModelConfig;
 import com.amplifyframework.core.model.annotations.ModelField;
@@ -22,27 +19,23 @@ import static com.amplifyframework.core.model.query.predicate.QueryField.field;
 
 /** This is an auto generated class representing the Workout type in your schema. */
 @SuppressWarnings("all")
-@ModelConfig(pluralName = "Workouts", type = Model.Type.USER, version = 1, authRules = {
-  @AuthRule(allow = AuthStrategy.PUBLIC, operations = { ModelOperation.CREATE, ModelOperation.UPDATE, ModelOperation.DELETE, ModelOperation.READ })
-})
-@Index(name = "byUser", fields = {"userID","name"})
+@ModelConfig(pluralName = "Workouts", type = Model.Type.USER, version = 1)
+@Index(name = "byUser", fields = {"userId","name"})
 public final class Workout implements Model {
   public static final QueryField ID = field("Workout", "id");
   public static final QueryField NAME = field("Workout", "name");
-  public static final QueryField USER_ID = field("Workout", "userID");
   public static final QueryField BODY_PART = field("Workout", "bodyPart");
   public static final QueryField MUSCLE_TARGET = field("Workout", "muscleTarget");
   public static final QueryField EQUIPMENT_USED = field("Workout", "equipmentUsed");
+  public static final QueryField IMAGE = field("Workout", "image");
   public static final QueryField USER = field("Workout", "userId");
-  public static final QueryField S3_IMAGE_KEY = field("Workout", "s3ImageKey");
   private final @ModelField(targetType="ID", isRequired = true) String id;
   private final @ModelField(targetType="String", isRequired = true) String name;
-  private final @ModelField(targetType="ID", isRequired = true) String userID;
   private final @ModelField(targetType="String", isRequired = true) String bodyPart;
   private final @ModelField(targetType="String", isRequired = true) String muscleTarget;
   private final @ModelField(targetType="String", isRequired = true) String equipmentUsed;
+  private final @ModelField(targetType="String", isRequired = true) String image;
   private final @ModelField(targetType="User") @BelongsTo(targetName = "userId", targetNames = {"userId"}, type = User.class) User user;
-  private final @ModelField(targetType="String") String s3ImageKey;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime createdAt;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime updatedAt;
   public String resolveIdentifier() {
@@ -57,10 +50,6 @@ public final class Workout implements Model {
       return name;
   }
   
-  public String getUserId() {
-      return userID;
-  }
-  
   public String getBodyPart() {
       return bodyPart;
   }
@@ -73,12 +62,12 @@ public final class Workout implements Model {
       return equipmentUsed;
   }
   
-  public User getUser() {
-      return user;
+  public String getImage() {
+      return image;
   }
   
-  public String getS3ImageKey() {
-      return s3ImageKey;
+  public User getUser() {
+      return user;
   }
   
   public Temporal.DateTime getCreatedAt() {
@@ -89,15 +78,14 @@ public final class Workout implements Model {
       return updatedAt;
   }
   
-  private Workout(String id, String name, String userID, String bodyPart, String muscleTarget, String equipmentUsed, User user, String s3ImageKey) {
+  private Workout(String id, String name, String bodyPart, String muscleTarget, String equipmentUsed, String image, User user) {
     this.id = id;
     this.name = name;
-    this.userID = userID;
     this.bodyPart = bodyPart;
     this.muscleTarget = muscleTarget;
     this.equipmentUsed = equipmentUsed;
+    this.image = image;
     this.user = user;
-    this.s3ImageKey = s3ImageKey;
   }
   
   @Override
@@ -110,12 +98,11 @@ public final class Workout implements Model {
       Workout workout = (Workout) obj;
       return ObjectsCompat.equals(getId(), workout.getId()) &&
               ObjectsCompat.equals(getName(), workout.getName()) &&
-              ObjectsCompat.equals(getUserId(), workout.getUserId()) &&
               ObjectsCompat.equals(getBodyPart(), workout.getBodyPart()) &&
               ObjectsCompat.equals(getMuscleTarget(), workout.getMuscleTarget()) &&
               ObjectsCompat.equals(getEquipmentUsed(), workout.getEquipmentUsed()) &&
+              ObjectsCompat.equals(getImage(), workout.getImage()) &&
               ObjectsCompat.equals(getUser(), workout.getUser()) &&
-              ObjectsCompat.equals(getS3ImageKey(), workout.getS3ImageKey()) &&
               ObjectsCompat.equals(getCreatedAt(), workout.getCreatedAt()) &&
               ObjectsCompat.equals(getUpdatedAt(), workout.getUpdatedAt());
       }
@@ -126,12 +113,11 @@ public final class Workout implements Model {
     return new StringBuilder()
       .append(getId())
       .append(getName())
-      .append(getUserId())
       .append(getBodyPart())
       .append(getMuscleTarget())
       .append(getEquipmentUsed())
+      .append(getImage())
       .append(getUser())
-      .append(getS3ImageKey())
       .append(getCreatedAt())
       .append(getUpdatedAt())
       .toString()
@@ -144,12 +130,11 @@ public final class Workout implements Model {
       .append("Workout {")
       .append("id=" + String.valueOf(getId()) + ", ")
       .append("name=" + String.valueOf(getName()) + ", ")
-      .append("userID=" + String.valueOf(getUserId()) + ", ")
       .append("bodyPart=" + String.valueOf(getBodyPart()) + ", ")
       .append("muscleTarget=" + String.valueOf(getMuscleTarget()) + ", ")
       .append("equipmentUsed=" + String.valueOf(getEquipmentUsed()) + ", ")
+      .append("image=" + String.valueOf(getImage()) + ", ")
       .append("user=" + String.valueOf(getUser()) + ", ")
-      .append("s3ImageKey=" + String.valueOf(getS3ImageKey()) + ", ")
       .append("createdAt=" + String.valueOf(getCreatedAt()) + ", ")
       .append("updatedAt=" + String.valueOf(getUpdatedAt()))
       .append("}")
@@ -176,7 +161,6 @@ public final class Workout implements Model {
       null,
       null,
       null,
-      null,
       null
     );
   }
@@ -184,20 +168,14 @@ public final class Workout implements Model {
   public CopyOfBuilder copyOfBuilder() {
     return new CopyOfBuilder(id,
       name,
-      userID,
       bodyPart,
       muscleTarget,
       equipmentUsed,
-      user,
-      s3ImageKey);
+      image,
+      user);
   }
   public interface NameStep {
-    UserIdStep name(String name);
-  }
-  
-
-  public interface UserIdStep {
-    BodyPartStep userId(String userId);
+    BodyPartStep name(String name);
   }
   
 
@@ -212,7 +190,12 @@ public final class Workout implements Model {
   
 
   public interface EquipmentUsedStep {
-    BuildStep equipmentUsed(String equipmentUsed);
+    ImageStep equipmentUsed(String equipmentUsed);
+  }
+  
+
+  public interface ImageStep {
+    BuildStep image(String image);
   }
   
 
@@ -220,19 +203,17 @@ public final class Workout implements Model {
     Workout build();
     BuildStep id(String id);
     BuildStep user(User user);
-    BuildStep s3ImageKey(String s3ImageKey);
   }
   
 
-  public static class Builder implements NameStep, UserIdStep, BodyPartStep, MuscleTargetStep, EquipmentUsedStep, BuildStep {
+  public static class Builder implements NameStep, BodyPartStep, MuscleTargetStep, EquipmentUsedStep, ImageStep, BuildStep {
     private String id;
     private String name;
-    private String userID;
     private String bodyPart;
     private String muscleTarget;
     private String equipmentUsed;
+    private String image;
     private User user;
-    private String s3ImageKey;
     @Override
      public Workout build() {
         String id = this.id != null ? this.id : UUID.randomUUID().toString();
@@ -240,25 +221,17 @@ public final class Workout implements Model {
         return new Workout(
           id,
           name,
-          userID,
           bodyPart,
           muscleTarget,
           equipmentUsed,
-          user,
-          s3ImageKey);
+          image,
+          user);
     }
     
     @Override
-     public UserIdStep name(String name) {
+     public BodyPartStep name(String name) {
         Objects.requireNonNull(name);
         this.name = name;
-        return this;
-    }
-    
-    @Override
-     public BodyPartStep userId(String userId) {
-        Objects.requireNonNull(userId);
-        this.userID = userId;
         return this;
     }
     
@@ -277,21 +250,22 @@ public final class Workout implements Model {
     }
     
     @Override
-     public BuildStep equipmentUsed(String equipmentUsed) {
+     public ImageStep equipmentUsed(String equipmentUsed) {
         Objects.requireNonNull(equipmentUsed);
         this.equipmentUsed = equipmentUsed;
         return this;
     }
     
     @Override
-     public BuildStep user(User user) {
-        this.user = user;
+     public BuildStep image(String image) {
+        Objects.requireNonNull(image);
+        this.image = image;
         return this;
     }
     
     @Override
-     public BuildStep s3ImageKey(String s3ImageKey) {
-        this.s3ImageKey = s3ImageKey;
+     public BuildStep user(User user) {
+        this.user = user;
         return this;
     }
     
@@ -307,25 +281,19 @@ public final class Workout implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, String name, String userId, String bodyPart, String muscleTarget, String equipmentUsed, User user, String s3ImageKey) {
+    private CopyOfBuilder(String id, String name, String bodyPart, String muscleTarget, String equipmentUsed, String image, User user) {
       super.id(id);
       super.name(name)
-        .userId(userId)
         .bodyPart(bodyPart)
         .muscleTarget(muscleTarget)
         .equipmentUsed(equipmentUsed)
-        .user(user)
-        .s3ImageKey(s3ImageKey);
+        .image(image)
+        .user(user);
     }
     
     @Override
      public CopyOfBuilder name(String name) {
       return (CopyOfBuilder) super.name(name);
-    }
-    
-    @Override
-     public CopyOfBuilder userId(String userId) {
-      return (CopyOfBuilder) super.userId(userId);
     }
     
     @Override
@@ -344,13 +312,13 @@ public final class Workout implements Model {
     }
     
     @Override
-     public CopyOfBuilder user(User user) {
-      return (CopyOfBuilder) super.user(user);
+     public CopyOfBuilder image(String image) {
+      return (CopyOfBuilder) super.image(image);
     }
     
     @Override
-     public CopyOfBuilder s3ImageKey(String s3ImageKey) {
-      return (CopyOfBuilder) super.s3ImageKey(s3ImageKey);
+     public CopyOfBuilder user(User user) {
+      return (CopyOfBuilder) super.user(user);
     }
   }
   

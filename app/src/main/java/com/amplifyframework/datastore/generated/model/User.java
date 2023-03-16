@@ -9,10 +9,7 @@ import java.util.Objects;
 
 import androidx.core.util.ObjectsCompat;
 
-import com.amplifyframework.core.model.AuthStrategy;
 import com.amplifyframework.core.model.Model;
-import com.amplifyframework.core.model.ModelOperation;
-import com.amplifyframework.core.model.annotations.AuthRule;
 import com.amplifyframework.core.model.annotations.Index;
 import com.amplifyframework.core.model.annotations.ModelConfig;
 import com.amplifyframework.core.model.annotations.ModelField;
@@ -22,19 +19,19 @@ import static com.amplifyframework.core.model.query.predicate.QueryField.field;
 
 /** This is an auto generated class representing the User type in your schema. */
 @SuppressWarnings("all")
-@ModelConfig(pluralName = "Users", type = Model.Type.USER, version = 1, authRules = {
-  @AuthRule(allow = AuthStrategy.PUBLIC, operations = { ModelOperation.CREATE, ModelOperation.UPDATE, ModelOperation.DELETE, ModelOperation.READ })
-})
+@ModelConfig(pluralName = "Users", type = Model.Type.USER, version = 1)
 public final class User implements Model {
   public static final QueryField ID = field("User", "id");
   public static final QueryField NAME = field("User", "name");
   public static final QueryField EMAIL = field("User", "email");
   public static final QueryField PASSWORD = field("User", "password");
+  public static final QueryField S3_IMAGE_KEY = field("User", "s3ImageKey");
   private final @ModelField(targetType="ID", isRequired = true) String id;
   private final @ModelField(targetType="String", isRequired = true) String name;
   private final @ModelField(targetType="String", isRequired = true) String email;
   private final @ModelField(targetType="String", isRequired = true) String password;
-  private final @ModelField(targetType="Workout") @HasMany(associatedWith = "userID", type = Workout.class) List<Workout> workout = null;
+  private final @ModelField(targetType="Workout") @HasMany(associatedWith = "user", type = Workout.class) List<Workout> workout = null;
+  private final @ModelField(targetType="String") String s3ImageKey;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime createdAt;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime updatedAt;
   public String resolveIdentifier() {
@@ -61,6 +58,10 @@ public final class User implements Model {
       return workout;
   }
   
+  public String getS3ImageKey() {
+      return s3ImageKey;
+  }
+  
   public Temporal.DateTime getCreatedAt() {
       return createdAt;
   }
@@ -69,11 +70,12 @@ public final class User implements Model {
       return updatedAt;
   }
   
-  private User(String id, String name, String email, String password) {
+  private User(String id, String name, String email, String password, String s3ImageKey) {
     this.id = id;
     this.name = name;
     this.email = email;
     this.password = password;
+    this.s3ImageKey = s3ImageKey;
   }
   
   @Override
@@ -88,6 +90,7 @@ public final class User implements Model {
               ObjectsCompat.equals(getName(), user.getName()) &&
               ObjectsCompat.equals(getEmail(), user.getEmail()) &&
               ObjectsCompat.equals(getPassword(), user.getPassword()) &&
+              ObjectsCompat.equals(getS3ImageKey(), user.getS3ImageKey()) &&
               ObjectsCompat.equals(getCreatedAt(), user.getCreatedAt()) &&
               ObjectsCompat.equals(getUpdatedAt(), user.getUpdatedAt());
       }
@@ -100,6 +103,7 @@ public final class User implements Model {
       .append(getName())
       .append(getEmail())
       .append(getPassword())
+      .append(getS3ImageKey())
       .append(getCreatedAt())
       .append(getUpdatedAt())
       .toString()
@@ -114,6 +118,7 @@ public final class User implements Model {
       .append("name=" + String.valueOf(getName()) + ", ")
       .append("email=" + String.valueOf(getEmail()) + ", ")
       .append("password=" + String.valueOf(getPassword()) + ", ")
+      .append("s3ImageKey=" + String.valueOf(getS3ImageKey()) + ", ")
       .append("createdAt=" + String.valueOf(getCreatedAt()) + ", ")
       .append("updatedAt=" + String.valueOf(getUpdatedAt()))
       .append("}")
@@ -137,6 +142,7 @@ public final class User implements Model {
       id,
       null,
       null,
+      null,
       null
     );
   }
@@ -145,7 +151,8 @@ public final class User implements Model {
     return new CopyOfBuilder(id,
       name,
       email,
-      password);
+      password,
+      s3ImageKey);
   }
   public interface NameStep {
     EmailStep name(String name);
@@ -165,6 +172,7 @@ public final class User implements Model {
   public interface BuildStep {
     User build();
     BuildStep id(String id);
+    BuildStep s3ImageKey(String s3ImageKey);
   }
   
 
@@ -173,6 +181,7 @@ public final class User implements Model {
     private String name;
     private String email;
     private String password;
+    private String s3ImageKey;
     @Override
      public User build() {
         String id = this.id != null ? this.id : UUID.randomUUID().toString();
@@ -181,7 +190,8 @@ public final class User implements Model {
           id,
           name,
           email,
-          password);
+          password,
+          s3ImageKey);
     }
     
     @Override
@@ -205,6 +215,12 @@ public final class User implements Model {
         return this;
     }
     
+    @Override
+     public BuildStep s3ImageKey(String s3ImageKey) {
+        this.s3ImageKey = s3ImageKey;
+        return this;
+    }
+    
     /**
      * @param id id
      * @return Current Builder instance, for fluent method chaining
@@ -217,11 +233,12 @@ public final class User implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, String name, String email, String password) {
+    private CopyOfBuilder(String id, String name, String email, String password, String s3ImageKey) {
       super.id(id);
       super.name(name)
         .email(email)
-        .password(password);
+        .password(password)
+        .s3ImageKey(s3ImageKey);
     }
     
     @Override
@@ -237,6 +254,11 @@ public final class User implements Model {
     @Override
      public CopyOfBuilder password(String password) {
       return (CopyOfBuilder) super.password(password);
+    }
+    
+    @Override
+     public CopyOfBuilder s3ImageKey(String s3ImageKey) {
+      return (CopyOfBuilder) super.s3ImageKey(s3ImageKey);
     }
   }
   
