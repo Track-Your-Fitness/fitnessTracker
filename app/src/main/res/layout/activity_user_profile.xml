@@ -147,4 +147,16 @@
         app:layout_constraintBottom_toTopOf="@+id/UserProfileTargetWeight"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <ImageView
+        android:id="@+id/UserProfileImagePicker"
+        android:layout_width="43dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="#B60000"
+        android:contentDescription="@string/userProfileImg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_gallery" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

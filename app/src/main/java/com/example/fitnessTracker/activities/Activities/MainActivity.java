@@ -22,6 +22,9 @@ import com.example.fitnessTracker.activities.UserWorkout.WorkOutCategoryActivity
 import android.preference.PreferenceManager;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 
 
@@ -92,6 +95,23 @@ public class MainActivity extends AppCompatActivity {
 //            goToUserSettingsIntent.putExtra(, userInput);
             startActivity(goToUserSettingsIntent);
         });
+
+        File exampleFile = new File(getApplicationContext().getFilesDir(), "ExampleKey");
+
+//        try {
+//            BufferedWriter writer = new BufferedWriter(new FileWriter(exampleFile));
+//            writer.append("Example file contents");
+//            writer.close();
+//        } catch (Exception exception) {
+//            Log.e("MyAmplifyApp", "Upload failed", exception);
+//        }
+//
+//        Amplify.Storage.uploadFile(
+//                "ExampleKey",
+//                exampleFile,
+//                success -> Log.i(TAG, "Successfully uploaded: " + success.getKey()),
+//                failure -> Log.e(TAG, "Upload failed", failure)
+//        );
 
     }
 

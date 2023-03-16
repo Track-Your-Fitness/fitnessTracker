@@ -12,11 +12,14 @@
       "AmplifyAppId": "d1xkdhiz4srdy9"
     },
     "categories": {
+      "auth": {
+        "fitnesstrackerf20f576b": {}
+      },
       "api": {
         "fitnesstracker": {}
       },
-      "auth": {
-        "fitnesstrackerf20f576b": {}
+      "storage": {
+        "s3a3b7f267": {}
       }
     }
   }

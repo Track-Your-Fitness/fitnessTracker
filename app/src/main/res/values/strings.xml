@@ -43,5 +43,6 @@
     <string name="weighttv">Weight</string>
     <string name="heighttv">Height</string>
     <string name="targetWeightTv">Target Weight</string>
+    <string name="userProfileImg">Profile Image</string>
 
 </resources>
