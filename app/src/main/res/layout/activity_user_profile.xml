@@ -24,157 +24,199 @@
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_menu" />
 
-    <TextView
-        android:id="@+id/UserProfileTargetWeight"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="144dp"
-        android:text="@string/targetWeight"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/UserProfileTextViewHeight" />
-
     <ImageView
         android:id="@+id/UserProfileImageViewUserImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="64dp"
         android:contentDescription="@string/userImage"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/UserProfileTextViewName"
+        android:id="@+id/UserProfileTextViewUserName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
-        android:layout_marginEnd="144dp"
+        android:layout_marginTop="108dp"
+        android:layout_marginEnd="48dp"
+        android:fontFamily="@font/goldman_bold"
         android:text="@string/name"
+        android:textColor="#0A100D"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/UserProfileTextViewWeight"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="144dp"
-        android:text="@string/Weight"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/UserProfileTextViewAge" />
-
-    <TextView
         android:id="@+id/UserProfileTextViewAge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="144dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="72dp"
+        android:fontFamily="@font/goldman_bold"
         android:text="@string/age"
+        android:textColor="#0A100D"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/UserProfileTextViewName" />
+        app:layout_constraintTop_toBottomOf="@+id/UserProfileTextViewUserName" />
+
+    <TextView
+        android:id="@+id/UserProfileAgeTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="124dp"
+        android:fontFamily="@font/goldman_bold"
+        android:text="@string/agetv"
+        android:textColor="#0A100D"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/UserProfileNameTV" />
+
+    <TextView
+        android:id="@+id/userProfileActivityNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="40dp"
+        android:fontFamily="@font/goldman_bold"
+        android:text="@string/nameTextView"
+        android:textColor="#0A100D"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/userProfileActivityNameTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="140dp"
+        android:fontFamily="@font/goldman_bold"
+        android:text="@string/nameTag"
+        android:textColor="#0A100D"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/UserProfileNameTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="116dp"
+        android:layout_marginEnd="124dp"
+        android:fontFamily="@font/goldman_bold"
+        android:text="@string/usernametv"
+        android:textColor="#0A100D"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/UserProfileTextViewFitnessGoal"
         android:layout_width="309dp"
         android:layout_height="44dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginBottom="36dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/goldman_bold"
         android:text="@string/fitnessGoal"
+        android:textColor="#0A100D"
         app:layout_constraintBottom_toTopOf="@+id/UserProfileTextViewInspirationalQuote"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/UserProfileTextViewInspirationalQuote"
         android:layout_width="307dp"
         android:layout_height="87dp"
-        android:layout_marginStart="32dp"
         android:layout_marginBottom="88dp"
+        android:fontFamily="@font/satisfy"
         android:text="@string/inspiration"
+        android:textColor="#0A100D"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/UserProfileTextViewHeight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="144dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="168dp"
+        android:fontFamily="@font/goldman_bold"
         android:text="@string/Height"
+        android:textColor="#0A100D"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/UserProfileTextViewWeight" />
 
     <TextView
-        android:id="@+id/UserProfileNameTV"
+        android:id="@+id/UserProfileTextViewWeight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="152dp"
-        android:layout_marginBottom="8dp"
-        android:text="@string/usernametv"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/UserProfileTextViewName"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/UserProfileAgeTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="152dp"
-        android:layout_marginBottom="8dp"
-        android:text="@string/agetv"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/UserProfileTextViewAge"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/UserProfileWeightTv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="152dp"
-        android:layout_marginBottom="8dp"
-        android:text="@string/weighttv"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/UserProfileTextViewWeight"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:layout_marginTop="312dp"
+        android:layout_marginEnd="154dp"
+        android:fontFamily="@font/goldman_bold"
+        android:text="@string/Weight"
+        android:textColor="#0A100D"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/UserProfileHeightTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="152dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="224dp"
+        android:fontFamily="@font/goldman_bold"
         android:text="@string/heighttv"
+        android:textColor="#0A100D"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/UserProfileTextViewHeight"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/UserProfileWeightTv" />
+
+    <TextView
+        android:id="@+id/UserProfileTargetWeight"
+        android:layout_width="112dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="140dp"
+        android:fontFamily="@font/goldman_bold"
+        android:text="@string/targetWeight"
+        android:textColor="#0A100D"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/UserProfileTextViewHeight" />
 
     <TextView
         android:id="@+id/UserProfileTargetWeightTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="152dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="224dp"
+        android:fontFamily="@font/goldman_bold"
         android:text="@string/targetWeightTv"
+        android:textColor="#0A100D"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/UserProfileTargetWeight"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <ImageView
-        android:id="@+id/UserProfileImagePicker"
-        android:layout_width="43dp"
-        android:layout_height="54dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="#B60000"
-        android:contentDescription="@string/userProfileImg"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_gallery" />
+        app:layout_constraintTop_toBottomOf="@+id/UserProfileHeightTv" />
+
+    <TextView
+        android:id="@+id/UserProfileWeightTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="228dp"
+        android:fontFamily="@font/goldman_bold"
+        android:text="@string/weighttv"
+        android:textColor="#0A100D"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/UserProfileTextViewWeight" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

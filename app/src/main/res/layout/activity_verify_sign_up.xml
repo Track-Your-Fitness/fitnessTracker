@@ -10,31 +10,41 @@
         android:id="@+id/verifySignUpActivityTitleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="175dp"
-        android:layout_marginTop="33dp"
+        android:layout_marginTop="56dp"
+        android:fontFamily="@font/goldman_bold"
         android:text="@string/verifySignUpTextView"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:fontFamily="@font/goldman_bold"
+        tools:textColor="#0A100D" />
 
     <Button
         android:id="@+id/verifySignUpActivitySubmitButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="173dp"
         android:layout_marginBottom="104dp"
+        android:fontFamily="@font/goldman_bold"
         android:text="@string/verifySignUpButton"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/verifySignUpActivityConfirmationCodeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="49dp"
-        android:layout_marginTop="161dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="196dp"
+        android:fontFamily="@font/goldman_bold"
         android:text="@string/verifySignUpConCodeTextView"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:textColor="#0A100D" />
 
     <EditText
         android:id="@+id/verifySignUpActivityConfirmationCodeEditText"

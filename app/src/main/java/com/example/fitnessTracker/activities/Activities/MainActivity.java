@@ -90,13 +90,13 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-        ImageView settingsButton = (ImageView) findViewById(R.id.MainActivitySettingsImg);
-        settingsButton.setOnClickListener(v -> {
-//            String userInput = ((EditText)findViewById(R.id.)).getText().toString();
-            Intent goToUserSettingsIntent = new Intent(this, UserSettingsActivity.class);
-//            goToUserSettingsIntent.putExtra(, userInput);
-            startActivity(goToUserSettingsIntent);
-        });
+//        ImageView settingsButton = (ImageView) findViewById(R.id.MainActivitySettingsImg);
+//        settingsButton.setOnClickListener(v -> {
+////            String userInput = ((EditText)findViewById(R.id.)).getText().toString();
+//            Intent goToUserSettingsIntent = new Intent(this, UserSettingsActivity.class);
+////            goToUserSettingsIntent.putExtra(, userInput);
+//            startActivity(goToUserSettingsIntent);
+//        });
 
         File exampleFile = new File(getApplicationContext().getFilesDir(), "ExampleKey");
 
@@ -163,9 +163,9 @@ public class MainActivity extends AppCompatActivity {
         StringRequest getRequest = new StringRequest(Request.Method.GET, url,
                 response -> {
                     // response
-                    Log.d("Response", response);
-                    final TextView textView = (TextView) findViewById(R.id.apiTextView);
-                    textView.setText(response);
+//                    Log.d("Response", response);
+//                    final TextView textView = (TextView) findViewById(R.id.apiTextView);
+//                    textView.setText(response);
                 },
                 error -> {
                     Log.d("ERROR","error => "+error.toString());
@@ -205,20 +205,12 @@ public class MainActivity extends AppCompatActivity {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            final TextView textView = (TextView) findViewById(R.id.apiTextView);
-            textView.setText(fitnessString);
+//            final TextView textView = (TextView) findViewById(R.id.apiTextView);
+//            textView.setText(fitnessString);
         }, error -> Toast.makeText(MainActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show());
 
         queue.add(request);
     }
-
-
-    /**
-     * Extracts api key from local.properties.
-     * @return string - api value from local.properties otherwise empty string.
-     */
-
-
 
     @Override
     protected void onResume() {
@@ -227,9 +219,6 @@ public class MainActivity extends AppCompatActivity {
 
         String userName = preferences.getString(USER_USERNAME_TAG, "no username");
         ((TextView)findViewById(R.id.MainUsernameDisplay)).setText(userName);
-
-        String name = preferences.getString(NAME_TAG, "no name");
-        ((TextView)findViewById(R.id.mainActivityNameTextView)).setText(name);
     }
 
 
@@ -245,27 +234,6 @@ public class MainActivity extends AppCompatActivity {
 public void intentButtons() {
 
     final String[] username = {preferences.getString(USER_NAME_TAG, "no username")};
-
-//    ImageView userProfileButton = (ImageView) findViewById(R.id.MainActivityUserProfileBtn);
-//    userProfileButton.setOnClickListener(v -> {
-//        Intent goToUserProfileIntent = new Intent(this, UserProfileActivity.class);
-//        startActivity(goToUserProfileIntent);
-//    });
-//    ImageView selectWorkoutButton = (ImageView) findViewById(R.id.SelectWorkoutButton);
-//    selectWorkoutButton.setOnClickListener(v -> {
-//        Intent goToSelectWorkoutIntent = new Intent(this, WorkOutCategoryActivity.class);
-//        startActivity(goToSelectWorkoutIntent);
-//    });
-//    ImageView userPastWorkoutsButton = (ImageView) findViewById(R.id.MainActivityYourWorkoutBttn);
-//    userPastWorkoutsButton.setOnClickListener(v -> {
-//        Intent goToUserWorkoutIntent = new Intent(this, UserWorkoutActivity.class);
-//        startActivity(goToUserWorkoutIntent);
-//    });
-//    ImageView userSettingsButton = (ImageView) findViewById(R.id.MainActivitySettingsImg);
-//    userSettingsButton.setOnClickListener(v -> {
-//        Intent goToUserSettingsIntent = new Intent(this, UserSettingsActivity.class);
-//        startActivity(goToUserSettingsIntent);
-//    });
 
     Amplify.Auth.getCurrentUser(
             success -> {
