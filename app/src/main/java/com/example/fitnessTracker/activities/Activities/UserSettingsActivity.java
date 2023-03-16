@@ -12,6 +12,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.fitnessTracker.R;
+import com.example.fitnessTracker.activities.UserWorkout.UserWorkoutActivity;
+import com.example.fitnessTracker.activities.UserWorkout.WorkOutCategoryActivity;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
 public class UserSettingsActivity extends AppCompatActivity {
@@ -37,6 +40,42 @@ public class UserSettingsActivity extends AppCompatActivity {
         }
         userSettingsInput();
         setupSaveBtn();
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setSelectedItemId(R.id.bottom_settings);
+
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+
+            switch (item.getItemId()){
+                case R.id.bottom_home:
+                    startActivity(new Intent(getApplicationContext(), MainActivity.class ));
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                    finish();
+                    return true;
+
+                case R.id.bottom_userPage:
+                    startActivity(new Intent(getApplicationContext(), UserProfileActivity.class));
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                    finish();
+                    return true;
+
+                case R.id.bottom_userworkout:
+                    startActivity(new Intent(getApplicationContext(), UserWorkoutActivity.class ));
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                    finish();
+                    return true;
+
+                case R.id.bottom_workOutCategory:
+                    startActivity(new Intent(getApplicationContext(), WorkOutCategoryActivity.class ));
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                    finish();
+                    return true;
+
+                case R.id.bottom_settings:
+                    return true;
+            }
+            return false;
+        });
     }
 
     public void userSettingsInput(){

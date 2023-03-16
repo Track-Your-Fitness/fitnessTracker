@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.fitnessTracker.activities.Activities.MainActivity">
-
     <ImageButton
         android:id="@+id/imageButton6"
         android:layout_width="82dp"
@@ -87,6 +86,25 @@
         app:layout_constraintStart_toEndOf="@+id/imageButton4"
         app:layout_constraintTop_toBottomOf="@+id/imageButton2"
         tools:srcCompat="@tools:sample/avatars" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/bottom_background"
+        android:elevation="2dp"
+        app:itemIconSize="30dp"
+        app:itemIconTint="@drawable/item_selector"
+        app:itemRippleColor="@android:color/transparent"
+        app:labelVisibilityMode="unlabeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_menu" />
+
 
     <TextView
         android:id="@+id/textView7"
@@ -245,6 +263,67 @@
             android:layout_height="18dp" />
 
     </LinearLayout>
+    <!--    <LinearLayout-->
+    <!--        android:id="@+id/linearLayout"-->
+    <!--        android:layout_width="409dp"-->
+    <!--        android:layout_height="66dp"-->
+    <!--        android:layout_marginBottom="1dp"-->
+    <!--        android:orientation="horizontal"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.5"-->
+    <!--        app:layout_constraintStart_toStartOf="parent">-->
+
+    <!--        <Space-->
+    <!--            android:layout_width="32dp"-->
+    <!--            android:layout_height="25dp"-->
+    <!--            android:layout_marginStart="16dp"-->
+    <!--            android:layout_marginTop="648dp" />-->
+
+    <!--        <ImageView-->
+    <!--            android:id="@+id/MainActivityUserProfileBtn"-->
+    <!--            android:layout_width="70dp"-->
+    <!--            android:layout_height="45dp"-->
+    <!--            app:srcCompat="@drawable/profile"-->
+    <!--            tools:srcCompat="@tools:sample/avatars" />-->
+
+    <!--        <Space-->
+    <!--            android:layout_width="70dp"-->
+    <!--            android:layout_height="20dp" />-->
+
+    <!--        <ImageView-->
+    <!--            android:id="@+id/SelectWorkoutButton"-->
+    <!--            android:layout_width="70dp"-->
+    <!--            android:layout_height="45dp"-->
+    <!--            app:srcCompat="@drawable/workout1"-->
+    <!--            tools:srcCompat="@tools:sample/avatars" />-->
+
+    <!--        <Space-->
+    <!--            android:layout_width="70dp"-->
+    <!--            android:layout_height="25dp" />-->
+
+    <!--        <ImageView-->
+    <!--            android:id="@+id/MainActivityYourWorkoutBttn"-->
+    <!--            android:layout_width="70dp"-->
+    <!--            android:layout_height="45dp"-->
+    <!--            app:srcCompat="@drawable/weights"-->
+    <!--            tools:srcCompat="@tools:sample/avatars" />-->
+
+    <!--        <Space-->
+    <!--            android:layout_width="30dp"-->
+    <!--            android:layout_height="18dp" />-->
+
+    <!--    </LinearLayout>-->
+
+    <TextView
+        android:id="@+id/mainActivityNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="20dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView6"

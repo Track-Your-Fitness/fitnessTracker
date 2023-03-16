@@ -1,4 +1,6 @@
 package com.example.fitnessTracker.activities.Activities;
+import static com.example.fitnessTracker.activities.Activities.UserSettingsActivity.USER_NAME_TAG;
+
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,7 +11,11 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+
+import com.amplifyframework.auth.AuthUser;
+import com.amplifyframework.core.Amplify;
 import com.example.fitnessTracker.R;
+import com.example.fitnessTracker.activities.AuthActivites.LoginActivity;
 import com.example.fitnessTracker.activities.UserWorkout.SelectedCategoryActivity;
 import com.example.fitnessTracker.activities.UserWorkout.SelectedWorkoutActivity;
 import com.example.fitnessTracker.activities.UserWorkout.UserWorkoutActivity;
@@ -19,6 +25,9 @@ import android.preference.PreferenceManager;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 
 
@@ -31,13 +40,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
-//import com.android.volley.Request;
-//import com.android.volley.RequestQueue;
-//import com.android.volley.Response;
-//import com.android.volley.VolleyError;
-//import com.android.volley.toolbox.JsonArrayRequest;
-//import com.android.volley.toolbox.StringRequest;
-//import com.android.volley.toolbox.Volley;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -50,14 +60,19 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
-
 public class MainActivity extends AppCompatActivity {
-    public final String TAG ="main_activity";
+
+    SharedPreferences preferences;
+
+    AuthUser authUser;
+    Button logoutButton;
+    //extracts from local.properties, else "".
+
+
+    public static final String TAG = "mainActivity";
     public static final String USER_INPUT_EXTRA_TAG = "userInput";
     public static final String USER_USERNAME_TAG = "userName";
+    static final String NAME_TAG = "name";
 
 //    Spinner bodyPartSpinner;
 //    Spinner equipmentUsedSpinner;
@@ -68,15 +83,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        bodyPartSpinner = findViewById(R.id.MainSpinnerBodyPart);
-//        equipmentUsedSpinner = findViewById(R.id.MainSpinnerEquipmentUsed);
 
-
+        preferences = PreferenceManager.getDefaultSharedPreferences(this);
 
         apiRequesterWithHeaders();
 
-        intentButtons();
+        logoutButton = findViewById(R.id.MainActivityLogoOutBtn);
 
+        intentButtons();
 
         if (android.os.Build.VERSION.SDK_INT > 9) {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -90,6 +104,59 @@ public class MainActivity extends AppCompatActivity {
             Intent goToUserSettingsIntent = new Intent(this, UserSettingsActivity.class);
 //            goToUserSettingsIntent.putExtra(, userInput);
             startActivity(goToUserSettingsIntent);
+        });
+
+        File exampleFile = new File(getApplicationContext().getFilesDir(), "ExampleKey");
+
+//        try {
+//            BufferedWriter writer = new BufferedWriter(new FileWriter(exampleFile));
+//            writer.append("Example file contents");
+//            writer.close();
+//        } catch (Exception exception) {
+//            Log.e("MyAmplifyApp", "Upload failed", exception);
+//        }
+//
+//        Amplify.Storage.uploadFile(
+//                "ExampleKey",
+//                exampleFile,
+//                success -> Log.i(TAG, "Successfully uploaded: " + success.getKey()),
+//                failure -> Log.e(TAG, "Upload failed", failure)
+//        );
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setSelectedItemId(R.id.bottom_home);
+
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+
+            switch (item.getItemId()){
+                case R.id.bottom_home:
+                    return true;
+
+                case R.id.bottom_userPage:
+                    startActivity(new Intent(getApplicationContext(), UserProfileActivity.class));
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                    finish();
+                    return true;
+
+                case R.id.bottom_userworkout:
+                    startActivity(new Intent(getApplicationContext(), UserWorkoutActivity.class ));
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                    finish();
+                    return true;
+
+                case R.id.bottom_workOutCategory:
+                    startActivity(new Intent(getApplicationContext(), WorkOutCategoryActivity.class ));
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                    finish();
+                    return true;
+
+                case R.id.bottom_settings:
+                    startActivity(new Intent(getApplicationContext(), UserSettingsActivity.class ));
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                    finish();
+                    return true;
+            }
+            return false;
         });
 
     }
@@ -146,38 +213,66 @@ public class MainActivity extends AppCompatActivity {
 
         String userName = preferences.getString(USER_USERNAME_TAG, "no username");
         ((TextView)findViewById(R.id.MainUsernameDisplay)).setText(userName);
-    }
 
-//    public void apiSubmitButton (){
-//        Button submitWorkoutSelectionButton = (Button) findViewById(R.id.MainButtonSubmit);
-//        submitWorkoutSelectionButton.setOnClickListener(v -> {
-//            Intent goToSelectedWorkoutIntent = new Intent(this, SelectedWorkoutActivity.class);
-//            startActivity(goToSelectedWorkoutIntent);
-//        });
-//    }
+        String name = preferences.getString(NAME_TAG, "no name");
+        ((TextView)findViewById(R.id.mainActivityNameTextView)).setText(name);
+    }
 
 public void intentButtons() {
 
-    ImageView userProfileButton = (ImageView) findViewById(R.id.MainActivityUserProfileBtn);
-    userProfileButton.setOnClickListener(v -> {
-        Intent goToUserProfileIntent = new Intent(this, UserProfileActivity.class);
-        startActivity(goToUserProfileIntent);
-    });
-    ImageView selectWorkoutButton = (ImageView) findViewById(R.id.SelectWorkoutButton);
-    selectWorkoutButton.setOnClickListener(v -> {
-        Intent goToSelectWorkoutIntent = new Intent(this, WorkOutCategoryActivity.class);
-        startActivity(goToSelectWorkoutIntent);
-    });
-    ImageView userPastWorkoutsButton = (ImageView) findViewById(R.id.MainActivityYourWorkoutBttn);
-    userPastWorkoutsButton.setOnClickListener(v -> {
-        Intent goToUserWorkoutIntent = new Intent(this, UserWorkoutActivity.class);
-        startActivity(goToUserWorkoutIntent);
-    });
-    ImageView userSettingsButton = (ImageView) findViewById(R.id.MainActivitySettingsImg);
-    userSettingsButton.setOnClickListener(v -> {
-        Intent goToUserSettingsIntent = new Intent(this, UserSettingsActivity.class);
-        startActivity(goToUserSettingsIntent);
-    });
+    public void renderButtons() {
+
 
 }}
+        if (authUser != null) {
+            logoutButton.setVisibility(View.VISIBLE);
+        } else {
+            logoutButton.setVisibility(View.INVISIBLE);
+        }
+    }
+
+public void intentButtons() {
+
+    final String[] username = {preferences.getString(USER_NAME_TAG, "no username")};
+
+//    ImageView userProfileButton = (ImageView) findViewById(R.id.MainActivityUserProfileBtn);
+//    userProfileButton.setOnClickListener(v -> {
+//        Intent goToUserProfileIntent = new Intent(this, UserProfileActivity.class);
+//        startActivity(goToUserProfileIntent);
+//    });
+//    ImageView selectWorkoutButton = (ImageView) findViewById(R.id.SelectWorkoutButton);
+//    selectWorkoutButton.setOnClickListener(v -> {
+//        Intent goToSelectWorkoutIntent = new Intent(this, WorkOutCategoryActivity.class);
+//        startActivity(goToSelectWorkoutIntent);
+//    });
+//    ImageView userPastWorkoutsButton = (ImageView) findViewById(R.id.MainActivityYourWorkoutBttn);
+//    userPastWorkoutsButton.setOnClickListener(v -> {
+//        Intent goToUserWorkoutIntent = new Intent(this, UserWorkoutActivity.class);
+//        startActivity(goToUserWorkoutIntent);
+//    });
+//    ImageView userSettingsButton = (ImageView) findViewById(R.id.MainActivitySettingsImg);
+//    userSettingsButton.setOnClickListener(v -> {
+//        Intent goToUserSettingsIntent = new Intent(this, UserSettingsActivity.class);
+//        startActivity(goToUserSettingsIntent);
+//    });
+
+    Amplify.Auth.getCurrentUser(
+            success -> {
+                Log.i(TAG, "Got Current User");
+                username[0] = success.getUsername();
+            },
+            failure -> {
+            }
+    );
+
+    logoutButton.setOnClickListener(v -> Amplify.Auth.signOut(
+            success -> {
+                Log.i(TAG, "User successfully logged out.");
+                authUser = null;
+                runOnUiThread(this::renderButtons);
+                Intent goToLoginActivityIntent = new Intent(this, LoginActivity.class);
+                startActivity(goToLoginActivityIntent);
+            }
+    ));
+}
 
