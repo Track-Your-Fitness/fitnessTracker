@@ -16,7 +16,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.fitnessTracker.R;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 
 public class UserProfileActivity extends AppCompatActivity {
@@ -27,6 +34,8 @@ public class UserProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
+
+        renderQuotes();
     }
     @Override
     protected void onResume() {
@@ -47,5 +56,28 @@ public class UserProfileActivity extends AppCompatActivity {
 
         String userTargetWeight = preferences.getString(USER_TARGET_WEIGHT_TAG , "");
         ((TextView)findViewById(R.id.UserProfileTargetWeight)).setText(userTargetWeight);
+    }
+    private void renderQuotes(){
+
+
+        // https://www.youtube.com/watch?v=xPi-z3nOcn8
+        // Instantiate the RequestQueue.
+        RequestQueue queue = Volley.newRequestQueue(this);
+        String url = "https://zenquotes.io/api/quotes";
+
+        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null, response -> {
+            String quote = "";
+            try {
+//                textView.setText("Response is: " + response.getJSONObject(0));
+                JSONObject allQuoteData = response.getJSONObject(0);
+                quote = " \" " + allQuoteData.getString("q") + "\"\n " + " - " + allQuoteData.getString("a");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            final TextView textView = findViewById(R.id.UserProfileTextViewInspirationalQuote);
+            textView.setText(quote);
+        }, error -> Toast.makeText(UserProfileActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show());
+
+        queue.add(request);
     }
 }
