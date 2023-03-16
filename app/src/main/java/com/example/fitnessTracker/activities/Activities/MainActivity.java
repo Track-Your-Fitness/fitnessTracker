@@ -5,20 +5,25 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.os.StrictMode;
+import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import com.example.fitnessTracker.R;
 import com.example.fitnessTracker.activities.UserWorkout.SelectedCategoryActivity;
+import com.example.fitnessTracker.activities.UserWorkout.SelectedWorkoutActivity;
 import com.example.fitnessTracker.activities.UserWorkout.UserWorkoutActivity;
 import com.example.fitnessTracker.activities.UserWorkout.WorkOutCategoryActivity;
 //package com.example.testrapidapi;
 import android.preference.PreferenceManager;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import java.io.IOException;
 
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -50,16 +55,22 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity {
-
-
+    public final String TAG ="main_activity";
     public static final String USER_INPUT_EXTRA_TAG = "userInput";
     public static final String USER_USERNAME_TAG = "userName";
+
+//    Spinner bodyPartSpinner;
+//    Spinner equipmentUsedSpinner;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+//        bodyPartSpinner = findViewById(R.id.MainSpinnerBodyPart);
+//        equipmentUsedSpinner = findViewById(R.id.MainSpinnerEquipmentUsed);
+
 
 
         apiRequesterWithHeaders();
@@ -83,6 +94,14 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void setUpSpinners (){
+//        bodyPartSpinner.setAdapter(new ArrayAdapter<>(
+//                this,
+//                android.R.layout.simple_spinner_item,
+//
+//        ));
+    }
+
 
     /**
      * Method that will use rapidapi to get content. log.d will show what is being extracted when running program.
@@ -90,36 +109,31 @@ public class MainActivity extends AppCompatActivity {
      */
     private void apiRequesterWithHeaders() {
         // run the API request in a background thread
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                OkHttpClient client = new OkHttpClient();
-                String apiUrl = "https://exercises2.p.rapidapi.com/?bodyPart=chest";
-                String apiKey ="205fe69fc7msh9938514ab2ba523p1bca7cjsnc28159e1568b";// <"replace me with yourAPI key" >
+        new Thread(() -> {
+            OkHttpClient client = new OkHttpClient();
+            String apiUrl = "https://exercises2.p.rapidapi.com/?bodyPart=chest";
+            String apiKey ="205fe69fc7msh9938514ab2ba523p1bca7cjsnc28159e1568b";// <"replace me with yourAPI key" >
 
-                Request request = new Request.Builder()
-                        .url(apiUrl)
-                        .get()
-                        .addHeader("X-RapidAPI-Key", apiKey)
-                        .addHeader("X-RapidAPI-Host", "exercises2.p.rapidapi.com")
-                        .build();
+            Request request = new Request.Builder()
+                    .url(apiUrl)
+                    .get()
+                    .addHeader("X-RapidAPI-Key", apiKey)
+                    .addHeader("X-RapidAPI-Host", "exercises2.p.rapidapi.com")
+                    .build();
 
-                try {
-                    Response response = client.newCall(request).execute();
-                    String responseBody = response.body().string();
-                    //parsing data from here
+            try {
+                Response response = client.newCall(request).execute();
+                String responseBody = response.body().string();
+                System.out.println(response);
+                //parsing data from here
 
-                    // update the UI on the main thread
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            final TextView textView = findViewById(R.id.apiTextView);
-                            textView.setText(responseBody);
-                        }
-                    });
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                // update the UI on the main thread
+                runOnUiThread(() -> {
+                    final TextView textView = findViewById(R.id.apiTextView);
+                    textView.setText(responseBody);
+                });
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }).start();
     }
@@ -133,6 +147,14 @@ public class MainActivity extends AppCompatActivity {
         String userName = preferences.getString(USER_USERNAME_TAG, "no username");
         ((TextView)findViewById(R.id.MainUsernameDisplay)).setText(userName);
     }
+
+//    public void apiSubmitButton (){
+//        Button submitWorkoutSelectionButton = (Button) findViewById(R.id.MainButtonSubmit);
+//        submitWorkoutSelectionButton.setOnClickListener(v -> {
+//            Intent goToSelectedWorkoutIntent = new Intent(this, SelectedWorkoutActivity.class);
+//            startActivity(goToSelectedWorkoutIntent);
+//        });
+//    }
 
 public void intentButtons() {
 
@@ -157,6 +179,5 @@ public void intentButtons() {
         startActivity(goToUserSettingsIntent);
     });
 
-}
+}}
 
-}
