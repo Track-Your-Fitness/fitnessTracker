@@ -29,7 +29,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.amplifyframework.core.Amplify;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.fitnessTracker.R;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -50,6 +57,7 @@ public class UserProfileActivity extends AppCompatActivity {
         activityResultLauncher = getImagePickingActivityResultLauncher();
 
         setUpAddImgBtn();
+        renderQuotes();
     }
     @Override
     protected void onResume() {
@@ -151,6 +159,30 @@ public class UserProfileActivity extends AppCompatActivity {
             }
         }
         return result;
+    }
+
+    private void renderQuotes(){
+
+
+        // https://www.youtube.com/watch?v=xPi-z3nOcn8
+        // Instantiate the RequestQueue.
+        RequestQueue queue = Volley.newRequestQueue(this);
+        String url = "https://zenquotes.io/api/quotes";
+
+        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null, response -> {
+            String quote = "";
+            try {
+//                textView.setText("Response is: " + response.getJSONObject(0));
+                JSONObject allQuoteData = response.getJSONObject(0);
+                quote = " \" " + allQuoteData.getString("q") + "\"\n " + " - " + allQuoteData.getString("a");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            final TextView textView = findViewById(R.id.UserProfileTextViewInspirationalQuote);
+            textView.setText(quote);
+        }, error -> Toast.makeText(UserProfileActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show());
+
+        queue.add(request);
     }
 
 }
