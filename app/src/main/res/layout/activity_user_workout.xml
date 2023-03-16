@@ -28,18 +28,51 @@
         android:id="@+id/UserWorkoutTextViewCurrentWorkout"
         android:layout_width="174dp"
         android:layout_height="48dp"
-        android:layout_marginStart="118dp"
-        android:layout_marginTop="129dp"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="96dp"
         android:text="@string/currentWorkouts"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/UserWorkoutsRecyclerViewCurrentWorkouts"
-        android:layout_width="385dp"
-        android:layout_height="442dp"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="15dp"
+    <TextView
+        android:id="@+id/UserWorkoutWorkoutNameTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="197dp"
+        android:text="@string/name"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/UserWorkoutTextViewCurrentWorkout" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/UserWorkoutBodyPartTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="51dp"
+        android:text="@string/bodyPart"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/UserWorkoutWorkoutNameTV" />
+
+    <TextView
+        android:id="@+id/UserWorkOutEquipmentTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="58dp"
+        android:layout_marginTop="70dp"
+        android:text="@string/equipmentUsed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/UserWorkoutBodyPartTV" />
+
+    <ImageView
+        android:id="@+id/UserWorkOutImageTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="96dp"
+        android:layout_marginTop="60dp"
+        android:contentDescription="@string/selectedWorkoutImage"
+        app:layout_constraintStart_toEndOf="@+id/UserWorkoutWorkoutNameTV"
+        app:layout_constraintTop_toBottomOf="@+id/UserWorkoutTextViewCurrentWorkout"
+        tools:srcCompat="@tools:sample/avatars" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

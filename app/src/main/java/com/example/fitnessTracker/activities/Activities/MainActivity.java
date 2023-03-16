@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.os.StrictMode;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 
@@ -16,11 +17,13 @@ import com.amplifyframework.core.Amplify;
 import com.example.fitnessTracker.R;
 import com.example.fitnessTracker.activities.AuthActivites.LoginActivity;
 import com.example.fitnessTracker.activities.UserWorkout.SelectedCategoryActivity;
+import com.example.fitnessTracker.activities.UserWorkout.SelectedWorkoutActivity;
 import com.example.fitnessTracker.activities.UserWorkout.UserWorkoutActivity;
 import com.example.fitnessTracker.activities.UserWorkout.WorkOutCategoryActivity;
 //package com.example.testrapidapi;
 import android.preference.PreferenceManager;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.io.BufferedWriter;
@@ -29,6 +32,7 @@ import java.io.IOException;
 
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -70,11 +74,15 @@ public class MainActivity extends AppCompatActivity {
     public static final String USER_USERNAME_TAG = "userName";
     static final String NAME_TAG = "name";
 
+//    Spinner bodyPartSpinner;
+//    Spinner equipmentUsedSpinner;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
 
@@ -155,6 +163,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
     private void apiRequesterWithHeaders(){
         RequestQueue queue = Volley.newRequestQueue(this);
         //do not need this (only used this to explain its from field variable).
@@ -182,35 +191,62 @@ public class MainActivity extends AppCompatActivity {
         };
         queue.add(getRequest);
         return;
+
+    public void setUpSpinners (){
+//        bodyPartSpinner.setAdapter(new ArrayAdapter<>(
+//                this,
+//                android.R.layout.simple_spinner_item,
+//
+//        ));
+
     }
 
+
     /**
-     * uses zenquotes to extract random quotes.
-     * @throws JSONException if response is null.
+     * Method that will use rapidapi to get content. log.d will show what is being extracted when running program.
+     * @throws NullPointerException if url is null.
      */
-    private void  apiRequesterWithoutHeaders(){
+    private void apiRequesterWithHeaders() {
+        // run the API request in a background thread
+        new Thread(() -> {
+            OkHttpClient client = new OkHttpClient();
+            String apiUrl = "https://exercises2.p.rapidapi.com/?bodyPart=chest";
+            String apiKey ="205fe69fc7msh9938514ab2ba523p1bca7cjsnc28159e1568b";// <"replace me with yourAPI key" >
 
+            Request request = new Request.Builder()
+                    .url(apiUrl)
+                    .get()
+                    .addHeader("X-RapidAPI-Key", apiKey)
+                    .addHeader("X-RapidAPI-Host", "exercises2.p.rapidapi.com")
+                    .build();
 
-        // https://www.youtube.com/watch?v=xPi-z3nOcn8
-        // Instantiate the RequestQueue.
-        RequestQueue queue = Volley.newRequestQueue(this);
-        String url = "https://exercises2.p.rapidapi.com/";
-
-        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null, response -> {
-            String fitnessString = "";
             try {
-//                textView.setText("Response is: " + response.getJSONObject(0));
-                JSONObject allFitnessData = response.getJSONObject(0);
-                fitnessString = " \" " + allFitnessData.getString("q") + "\"\n " + " - " + allFitnessData.getString("a");
-            } catch (JSONException e) {
+                Response response = client.newCall(request).execute();
+                String responseBody = response.body().string();
+                System.out.println(response);
+                //parsing data from here
+
+                // update the UI on the main thread
+                runOnUiThread(() -> {
+                    final TextView textView = findViewById(R.id.apiTextView);
+                    textView.setText(responseBody);
+                });
+            } catch (IOException e) {
                 e.printStackTrace();
             }
+
 //            final TextView textView = (TextView) findViewById(R.id.apiTextView);
 //            textView.setText(fitnessString);
         }, error -> Toast.makeText(MainActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show());
 
         queue.add(request);
     }
+
+
+        }).start();
+    }
+
+
 
     @Override
     protected void onResume() {
@@ -221,9 +257,12 @@ public class MainActivity extends AppCompatActivity {
         ((TextView)findViewById(R.id.MainUsernameDisplay)).setText(userName);
     }
 
+public void intentButtons() {
 
     public void renderButtons() {
 
+
+}}
         if (authUser != null) {
             logoutButton.setVisibility(View.VISIBLE);
         } else {
@@ -255,4 +294,3 @@ public void intentButtons() {
     ));
 }
 
-}
