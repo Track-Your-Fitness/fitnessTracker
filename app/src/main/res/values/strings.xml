@@ -37,6 +37,19 @@
     <string name="SaveW">Save</string>
     <string name="target">Target Weight</string>
     <string name="currentWorkouts">Current Workout</string>
+    <string name="selectAnExercise">Select An Exercise</string>
+    <string name="bodyPart">Body Part</string>
+    <string name="equipmentUsed">Equipment Used</string>
+    <string name="muscleTarget">Muscle Target</string>
+    <string name="welcome">Welcome:</string>
+    <string name="username">Username</string>
+    <string name="yourProfile">Your Profile</string>
+    <string name="selectAWorkout">Select A Workout</string>
+    <string name="yourWorkouts">Your Workouts</string>
+    <string name="submit">Submit</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="selectedWorkoutImage">Selected Workout Image</string>
     <string name="nameTVUserProfile">Name</string>
     <string name="agetv">Age</string>
     <string name="usernametv">Username</string>
