@@ -6,8 +6,10 @@
     "defaultAuthType": {
       "mode": "API_KEY",
       "expirationTime": 60,
-      "apiKeyExpirationDate": "2023-05-14T19:11:36.227Z",
+      "apiKeyExpirationDate": "2023-05-15T03:19:27.214Z",
       "keyDescription": "fitnessTracker"
-    }
+    },
+    "conflictResolution": {},
+    "additionalAuthTypes": []
   }
 }

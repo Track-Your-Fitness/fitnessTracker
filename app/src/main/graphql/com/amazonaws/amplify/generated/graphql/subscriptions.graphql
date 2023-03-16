@@ -4,6 +4,7 @@ subscription OnCreateTodo($filter: ModelSubscriptionTodoFilterInput) {
     id
     name
     description
+    s3ImageKey
     createdAt
     updatedAt
   }
@@ -13,6 +14,7 @@ subscription OnUpdateTodo($filter: ModelSubscriptionTodoFilterInput) {
     id
     name
     description
+    s3ImageKey
     createdAt
     updatedAt
   }
@@ -22,6 +24,7 @@ subscription OnDeleteTodo($filter: ModelSubscriptionTodoFilterInput) {
     id
     name
     description
+    s3ImageKey
     createdAt
     updatedAt
   }
