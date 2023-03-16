@@ -34,6 +34,9 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.fitnessTracker.R;
+import com.example.fitnessTracker.activities.UserWorkout.UserWorkoutActivity;
+import com.example.fitnessTracker.activities.UserWorkout.WorkOutCategoryActivity;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -58,6 +61,42 @@ public class UserProfileActivity extends AppCompatActivity {
 
         setUpAddImgBtn();
         renderQuotes();
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setSelectedItemId(R.id.bottom_userPage);
+
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+
+            switch (item.getItemId()){
+                case R.id.bottom_home:
+                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                    finish();
+                    return true;
+
+                case R.id.bottom_userPage:
+                    return true;
+
+                case R.id.bottom_userworkout:
+                    startActivity(new Intent(getApplicationContext(), UserWorkoutActivity.class ));
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                    finish();
+                    return true;
+
+                case R.id.bottom_workOutCategory:
+                    startActivity(new Intent(getApplicationContext(), WorkOutCategoryActivity.class ));
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                    finish();
+                    return true;
+
+                case R.id.bottom_settings:
+                    startActivity(new Intent(getApplicationContext(), UserSettingsActivity.class ));
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                    finish();
+                    return true;
+            }
+            return false;
+        });
     }
     @Override
     protected void onResume() {

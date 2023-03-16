@@ -21,6 +21,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     public final String TAG = "sign_up_activity";
     public static final String USER_EMAIL = "user_email";
+    static final String NAME_TAG = "name";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +32,10 @@ public class SignUpActivity extends AppCompatActivity {
 
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
 
+        String name = preferences.getString(NAME_TAG, "");
+        EditText editNameText = findViewById(R.id.signUpActivityNameEditText);
+        editNameText.setText(name);
+
     }
 
     public void setUpSignUpButton() {
@@ -38,8 +43,12 @@ public class SignUpActivity extends AppCompatActivity {
         findViewById(R.id.signUpActivitySignUpButton).setOnClickListener(view -> {
             String userEmail = ((EditText) findViewById(R.id.signUpEmailEditText)).getText().toString();
             String userPassword = ((EditText) findViewById(R.id.signUpPasswordEditText)).getText().toString();
+            EditText nameEditText = findViewById(R.id.signUpActivityNameEditText);
 
             SharedPreferences.Editor preferencesEditor = preferences.edit();
+            String nameString = nameEditText.getText().toString();
+            preferencesEditor.putString(NAME_TAG, nameString);
+
 
             preferencesEditor.apply();
 

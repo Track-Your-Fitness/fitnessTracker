@@ -43,6 +43,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -67,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String TAG = "mainActivity";
     public static final String USER_INPUT_EXTRA_TAG = "userInput";
     public static final String USER_USERNAME_TAG = "userName";
+    static final String NAME_TAG = "name";
 
 
     @Override
@@ -112,6 +114,42 @@ public class MainActivity extends AppCompatActivity {
 //                success -> Log.i(TAG, "Successfully uploaded: " + success.getKey()),
 //                failure -> Log.e(TAG, "Upload failed", failure)
 //        );
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setSelectedItemId(R.id.bottom_home);
+
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+
+            switch (item.getItemId()){
+                case R.id.bottom_home:
+                    return true;
+
+                case R.id.bottom_userPage:
+                    startActivity(new Intent(getApplicationContext(), UserProfileActivity.class));
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                    finish();
+                    return true;
+
+                case R.id.bottom_userworkout:
+                    startActivity(new Intent(getApplicationContext(), UserWorkoutActivity.class ));
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                    finish();
+                    return true;
+
+                case R.id.bottom_workOutCategory:
+                    startActivity(new Intent(getApplicationContext(), WorkOutCategoryActivity.class ));
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                    finish();
+                    return true;
+
+                case R.id.bottom_settings:
+                    startActivity(new Intent(getApplicationContext(), UserSettingsActivity.class ));
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                    finish();
+                    return true;
+            }
+            return false;
+        });
 
     }
 
@@ -189,6 +227,9 @@ public class MainActivity extends AppCompatActivity {
 
         String userName = preferences.getString(USER_USERNAME_TAG, "no username");
         ((TextView)findViewById(R.id.MainUsernameDisplay)).setText(userName);
+
+        String name = preferences.getString(NAME_TAG, "no name");
+        ((TextView)findViewById(R.id.mainActivityNameTextView)).setText(name);
     }
 
 
@@ -205,26 +246,26 @@ public void intentButtons() {
 
     final String[] username = {preferences.getString(USER_NAME_TAG, "no username")};
 
-    ImageView userProfileButton = (ImageView) findViewById(R.id.MainActivityUserProfileBtn);
-    userProfileButton.setOnClickListener(v -> {
-        Intent goToUserProfileIntent = new Intent(this, UserProfileActivity.class);
-        startActivity(goToUserProfileIntent);
-    });
-    ImageView selectWorkoutButton = (ImageView) findViewById(R.id.SelectWorkoutButton);
-    selectWorkoutButton.setOnClickListener(v -> {
-        Intent goToSelectWorkoutIntent = new Intent(this, WorkOutCategoryActivity.class);
-        startActivity(goToSelectWorkoutIntent);
-    });
-    ImageView userPastWorkoutsButton = (ImageView) findViewById(R.id.MainActivityYourWorkoutBttn);
-    userPastWorkoutsButton.setOnClickListener(v -> {
-        Intent goToUserWorkoutIntent = new Intent(this, UserWorkoutActivity.class);
-        startActivity(goToUserWorkoutIntent);
-    });
-    ImageView userSettingsButton = (ImageView) findViewById(R.id.MainActivitySettingsImg);
-    userSettingsButton.setOnClickListener(v -> {
-        Intent goToUserSettingsIntent = new Intent(this, UserSettingsActivity.class);
-        startActivity(goToUserSettingsIntent);
-    });
+//    ImageView userProfileButton = (ImageView) findViewById(R.id.MainActivityUserProfileBtn);
+//    userProfileButton.setOnClickListener(v -> {
+//        Intent goToUserProfileIntent = new Intent(this, UserProfileActivity.class);
+//        startActivity(goToUserProfileIntent);
+//    });
+//    ImageView selectWorkoutButton = (ImageView) findViewById(R.id.SelectWorkoutButton);
+//    selectWorkoutButton.setOnClickListener(v -> {
+//        Intent goToSelectWorkoutIntent = new Intent(this, WorkOutCategoryActivity.class);
+//        startActivity(goToSelectWorkoutIntent);
+//    });
+//    ImageView userPastWorkoutsButton = (ImageView) findViewById(R.id.MainActivityYourWorkoutBttn);
+//    userPastWorkoutsButton.setOnClickListener(v -> {
+//        Intent goToUserWorkoutIntent = new Intent(this, UserWorkoutActivity.class);
+//        startActivity(goToUserWorkoutIntent);
+//    });
+//    ImageView userSettingsButton = (ImageView) findViewById(R.id.MainActivitySettingsImg);
+//    userSettingsButton.setOnClickListener(v -> {
+//        Intent goToUserSettingsIntent = new Intent(this, UserSettingsActivity.class);
+//        startActivity(goToUserSettingsIntent);
+//    });
 
     Amplify.Auth.getCurrentUser(
             success -> {
