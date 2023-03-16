@@ -10,20 +10,26 @@
         android:id="@+id/signUpActivityTitleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="69dp"
+        android:layout_marginTop="56dp"
+        android:fontFamily="@font/goldman_bold"
         android:text="@string/signUpTitle"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="168dp" />
+        android:textColor="#0A100D"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/signUpActivitySignUpButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="158dp"
         android:layout_marginBottom="83dp"
         android:text="@string/signUpButtonSignUp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/signUpPasswordEditText"
@@ -33,6 +39,7 @@
         android:layout_marginEnd="101dp"
         android:ems="10"
         android:inputType="textPassword"
+        android:textColor="#0A100D"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signUpEmailEditText" />
 
@@ -44,6 +51,7 @@
         android:layout_marginEnd="101dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:textColor="#0A100D"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signUpActivityTitleTextView" />
 
@@ -51,9 +59,12 @@
         android:id="@+id/signUpActivityEmailTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginBottom="68dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginBottom="64dp"
+        android:fontFamily="@font/goldman_bold"
         android:text="@string/signUpEmailTextView"
+        android:textColor="#0A100D"
+        android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/signUpActivityPasswordTextView"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -61,9 +72,12 @@
         android:id="@+id/signUpActivityPasswordTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginBottom="416dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="412dp"
+        android:fontFamily="@font/goldman_bold"
         android:text="@string/signUpPasswordTextView"
+        android:textColor="#0A100D"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -71,9 +85,12 @@
         android:id="@+id/signUpActivityNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="132dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="136dp"
+        android:fontFamily="@font/goldman_bold"
         android:text="@string/sugnUpNameTestView"
+        android:textColor="#0A100D"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -82,11 +99,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="100dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:textColor="#0A100D"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.8"
         app:layout_constraintStart_toEndOf="@+id/signUpActivityNameTextView"
         app:layout_constraintTop_toBottomOf="@+id/signUpActivityTitleTextView" />
 

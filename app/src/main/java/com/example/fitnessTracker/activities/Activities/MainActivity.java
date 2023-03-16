@@ -98,13 +98,13 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-        ImageView settingsButton = (ImageView) findViewById(R.id.MainActivitySettingsImg);
-        settingsButton.setOnClickListener(v -> {
-//            String userInput = ((EditText)findViewById(R.id.)).getText().toString();
-            Intent goToUserSettingsIntent = new Intent(this, UserSettingsActivity.class);
-//            goToUserSettingsIntent.putExtra(, userInput);
-            startActivity(goToUserSettingsIntent);
-        });
+//        ImageView settingsButton = (ImageView) findViewById(R.id.MainActivitySettingsImg);
+//        settingsButton.setOnClickListener(v -> {
+////            String userInput = ((EditText)findViewById(R.id.)).getText().toString();
+//            Intent goToUserSettingsIntent = new Intent(this, UserSettingsActivity.class);
+////            goToUserSettingsIntent.putExtra(, userInput);
+//            startActivity(goToUserSettingsIntent);
+//        });
 
         File exampleFile = new File(getApplicationContext().getFilesDir(), "ExampleKey");
 
@@ -161,12 +161,44 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+
+
+    private void apiRequesterWithHeaders(){
+        RequestQueue queue = Volley.newRequestQueue(this);
+        //do not need this (only used this to explain its from field variable).
+        String url = "https://exercises2.p.rapidapi.com/"; //TODO: need to add a meaningful request otherwise this will return the whole dom!
+        String apiKey = "205fe69fc7msh9938514ab2ba523p1bca7cjsnc28159e1568b";
+        StringRequest getRequest = new StringRequest(Request.Method.GET, url,
+                response -> {
+                    // response
+//                    Log.d("Response", response);
+//                    final TextView textView = (TextView) findViewById(R.id.apiTextView);
+//                    textView.setText(response);
+                },
+                error -> {
+                    Log.d("ERROR","error => "+error.toString());
+                }
+        ) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String>  params = new HashMap<String, String>();
+                params.put("X-RapidAPI-Key", "0c2becdfa7mshb9a3c113775cbdep163e0djsn8543d4ba6d1a");
+                params.put("X-RapidAPI-Host", "exercises2.p.rapidapi.com");
+
+                return params;
+            }
+        };
+        queue.add(getRequest);
+        return;
+
     public void setUpSpinners (){
 //        bodyPartSpinner.setAdapter(new ArrayAdapter<>(
 //                this,
 //                android.R.layout.simple_spinner_item,
 //
 //        ));
+
     }
 
 
@@ -202,8 +234,18 @@ public class MainActivity extends AppCompatActivity {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
+//            final TextView textView = (TextView) findViewById(R.id.apiTextView);
+//            textView.setText(fitnessString);
+        }, error -> Toast.makeText(MainActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show());
+
+        queue.add(request);
+    }
+
+
         }).start();
     }
+
 
 
     @Override
@@ -213,9 +255,6 @@ public class MainActivity extends AppCompatActivity {
 
         String userName = preferences.getString(USER_USERNAME_TAG, "no username");
         ((TextView)findViewById(R.id.MainUsernameDisplay)).setText(userName);
-
-        String name = preferences.getString(NAME_TAG, "no name");
-        ((TextView)findViewById(R.id.mainActivityNameTextView)).setText(name);
     }
 
 public void intentButtons() {
@@ -234,27 +273,6 @@ public void intentButtons() {
 public void intentButtons() {
 
     final String[] username = {preferences.getString(USER_NAME_TAG, "no username")};
-
-//    ImageView userProfileButton = (ImageView) findViewById(R.id.MainActivityUserProfileBtn);
-//    userProfileButton.setOnClickListener(v -> {
-//        Intent goToUserProfileIntent = new Intent(this, UserProfileActivity.class);
-//        startActivity(goToUserProfileIntent);
-//    });
-//    ImageView selectWorkoutButton = (ImageView) findViewById(R.id.SelectWorkoutButton);
-//    selectWorkoutButton.setOnClickListener(v -> {
-//        Intent goToSelectWorkoutIntent = new Intent(this, WorkOutCategoryActivity.class);
-//        startActivity(goToSelectWorkoutIntent);
-//    });
-//    ImageView userPastWorkoutsButton = (ImageView) findViewById(R.id.MainActivityYourWorkoutBttn);
-//    userPastWorkoutsButton.setOnClickListener(v -> {
-//        Intent goToUserWorkoutIntent = new Intent(this, UserWorkoutActivity.class);
-//        startActivity(goToUserWorkoutIntent);
-//    });
-//    ImageView userSettingsButton = (ImageView) findViewById(R.id.MainActivitySettingsImg);
-//    userSettingsButton.setOnClickListener(v -> {
-//        Intent goToUserSettingsIntent = new Intent(this, UserSettingsActivity.class);
-//        startActivity(goToUserSettingsIntent);
-//    });
 
     Amplify.Auth.getCurrentUser(
             success -> {
