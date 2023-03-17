@@ -50,18 +50,18 @@ public class SelectedWorkoutActivity extends AppCompatActivity {
             workoutEquipment = callingIntent.getStringArrayListExtra(WorkOutRecyclerViewAdapter.WORKOUT_EQUIPMENT_TAG);
             workoutImage = callingIntent.getStringArrayListExtra(WorkOutRecyclerViewAdapter.WORKOUT_IMAGE_TAG);
         }
-        ((TextView) findViewById(R.id.ExerciseFragTVName)).setText((CharSequence) workoutName);
-        ((TextView)findViewById(R.id.ExerciseFragTVBodyPart)).setText((CharSequence) workoutBodyPart);
-        ((TextView)findViewById(R.id.ExerciseFragTVEquipmentUsed)).setText((CharSequence) workoutEquipment);
+//        ((TextView) findViewById(R.id.ExerciseFragTVName)).setText((CharSequence) workoutName);
+//        ((TextView)findViewById(R.id.ExerciseFragTVBodyPart)).setText((CharSequence) workoutBodyPart);
+//        ((TextView)findViewById(R.id.ExerciseFragTVEquipmentUsed)).setText((CharSequence) workoutEquipment);
 //        ((ImageView)findViewById(R.id.UserWorkOutImageTV)).setImageURI(URI);
     }
 
     public void recyclerView(){
 
         List<WorkOut> workOutList = new ArrayList<>();
-        WorkOut workOut = new WorkOut("877", "kettlebell alternating row", "back", "upper-back", "kettlebell", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQv5IZLWJtFdrMVq70yPbZh3JGdc0QBkfWFIA&usqp=CAU");
-        WorkOut workOut1 = new WorkOut("421", "cable upper row", "back", "upper-back", "cable", "d");
-        WorkOut workOut2 = new WorkOut("76", "band shrug", "back", "traps", "band", "");
+        WorkOut workOut = new WorkOut("877", "Exercise: Straight Arm Lat Pulldown", "Target: Back", "Muscle Target: Latissimus Dorsi", "Equipment Needed: Lat Bar w/Cable", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQv5IZLWJtFdrMVq70yPbZh3JGdc0QBkfWFIA&usqp=CAU");
+        WorkOut workOut1 = new WorkOut("421", "Exercise: Cable upper row", "Target: back", "Muscle Target: Upper-back", "Equipment Needed: Cable", "d");
+        WorkOut workOut2 = new WorkOut("76", "Exercise: Band shrug", "Target: Back", "Muscle Target: Traps", "Equipment Needed: Resistance Band", "");
         WorkOut workOut3 = new WorkOut("869", "jump rope", "cardio", "cardiovascular-system", "rope", "");
         WorkOut workOut4 = new WorkOut("1027", "mountain climber", "cardio", "cardiovascular-system", "body-weight", "");
         WorkOut workOut5 = new WorkOut("1245", "star jump (male)", "cardio", "cardiovascular-system", "body-weight", "");

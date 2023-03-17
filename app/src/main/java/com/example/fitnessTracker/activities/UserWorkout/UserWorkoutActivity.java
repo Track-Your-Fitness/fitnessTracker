@@ -26,7 +26,7 @@ public class UserWorkoutActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_workout);
 
-        consumeExtras();
+//        consumeExtras();
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setSelectedItemId(R.id.bottom_userworkout);

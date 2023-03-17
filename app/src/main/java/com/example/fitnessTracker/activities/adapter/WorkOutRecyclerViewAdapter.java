@@ -68,7 +68,8 @@ public class WorkOutRecyclerViewAdapter extends RecyclerView.Adapter <WorkOutRec
 
     @Override
     public int getItemCount() {
-        return 10;
+
+        return 3;
     }
 
     public static class WorkoutViewHolder extends RecyclerView.ViewHolder{
