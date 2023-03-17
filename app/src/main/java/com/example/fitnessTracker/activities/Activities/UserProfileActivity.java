@@ -1,6 +1,5 @@
 package com.example.fitnessTracker.activities.Activities;
 
-import static com.example.fitnessTracker.activities.Activities.MainActivity.NAME_TAG;
 import static com.example.fitnessTracker.activities.Activities.MainActivity.USER_USERNAME_TAG;
 import static com.example.fitnessTracker.activities.Activities.UserSettingsActivity.USER_AGE_TAG;
 import static com.example.fitnessTracker.activities.Activities.UserSettingsActivity.USER_HEIGHT_TAG;
@@ -17,11 +16,15 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.provider.OpenableColumns;
 import android.util.Log;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -56,7 +59,7 @@ public class UserProfileActivity extends AppCompatActivity {
 
         activityResultLauncher = getImagePickingActivityResultLauncher();
 
-//        setUpAddImgBtn();
+        setUpAddImgBtn();
         renderQuotes();
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
@@ -101,7 +104,7 @@ public class UserProfileActivity extends AppCompatActivity {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
 
         String userName = preferences.getString(USER_USERNAME_TAG, "");
-        ((TextView)findViewById(R.id.UserProfileTextViewUserName)).setText(userName);
+        ((TextView)findViewById(R.id.UserProfileTextViewName)).setText(userName);
 
         String userAge = preferences.getString(USER_AGE_TAG, "");
         ((TextView)findViewById(R.id.UserProfileTextViewAge)).setText(userAge);
@@ -114,17 +117,14 @@ public class UserProfileActivity extends AppCompatActivity {
 
         String userTargetWeight = preferences.getString(USER_TARGET_WEIGHT_TAG , "");
         ((TextView)findViewById(R.id.UserProfileTargetWeight)).setText(userTargetWeight);
-
-        String name = preferences.getString(NAME_TAG, "no name");
-        ((TextView)findViewById(R.id.userProfileActivityNameTextView)).setText(name);
     }
 
-//    public void setUpAddImgBtn() {
-//        // on click listener -> launch the img picking intent
-//        findViewById(R.id.UserProfileImagePicker).setOnClickListener(v -> {
-//            launchImageSelectionIntent();
-//        });
-//    }
+    public void setUpAddImgBtn() {
+        // on click listener -> launch the img picking intent
+        findViewById(R.id.UserProfileImagePicker).setOnClickListener(v -> {
+            launchImageSelectionIntent();
+        });
+    }
 
     public void launchImageSelectionIntent(){
         // OnActivityResult
@@ -164,14 +164,14 @@ public class UserProfileActivity extends AppCompatActivity {
                 success -> {
                     Log.i(TAG, "SUCCESS! Uploaded file to S3! Filename is: " + success.getKey());
                     s3ImageKey = pickedImageFileName;
-//                    ImageView profileImageView = findViewById(R.id.UserProfileImagePicker);
+                    ImageView profileImageView = findViewById(R.id.UserProfileImagePicker);
                     InputStream pickedImageInputStreamCopy = null;
                     try {
                         pickedImageInputStreamCopy = getContentResolver().openInputStream(pickedImageFileUri);
                     } catch (FileNotFoundException fnfe) {
                         Log.e(TAG, "Could not get file stream from URI! " + fnfe.getMessage(), fnfe);
                     }
-//                    profileImageView.setImageBitmap(BitmapFactory.decodeStream(pickedImageInputStreamCopy));
+                    profileImageView.setImageBitmap(BitmapFactory.decodeStream(pickedImageInputStreamCopy));
                 },
                 failure -> Log.e(TAG, "FAILED to upload file to S3 with filename: " + pickedImageFileName + " with error: " + failure)
         );
