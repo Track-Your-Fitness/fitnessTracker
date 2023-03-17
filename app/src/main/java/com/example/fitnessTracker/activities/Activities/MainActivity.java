@@ -72,9 +72,7 @@ public class MainActivity extends AppCompatActivity {
 //        equipmentUsedSpinner = findViewById(R.id.MainSpinnerEquipmentUsed);
 
 
-
-        apiRequesterWithHeaders();
-
+        setupWorkoutButtons();
         intentButtons();
 
 
@@ -107,36 +105,6 @@ public class MainActivity extends AppCompatActivity {
      * Method that will use rapidapi to get content. log.d will show what is being extracted when running program.
      * @throws NullPointerException if url is null.
      */
-    private void apiRequesterWithHeaders() {
-        // run the API request in a background thread
-        new Thread(() -> {
-            OkHttpClient client = new OkHttpClient();
-            String apiUrl = "https://exercises2.p.rapidapi.com/?bodyPart=chest";
-            String apiKey ="205fe69fc7msh9938514ab2ba523p1bca7cjsnc28159e1568b";// <"replace me with yourAPI key" >
-
-            Request request = new Request.Builder()
-                    .url(apiUrl)
-                    .get()
-                    .addHeader("X-RapidAPI-Key", apiKey)
-                    .addHeader("X-RapidAPI-Host", "exercises2.p.rapidapi.com")
-                    .build();
-
-            try {
-                Response response = client.newCall(request).execute();
-                String responseBody = response.body().string();
-                System.out.println(response);
-                //parsing data from here
-
-                // update the UI on the main thread
-                runOnUiThread(() -> {
-                    final TextView textView = findViewById(R.id.apiTextView);
-                    textView.setText(responseBody);
-                });
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }).start();
-    }
 
 
     @Override
@@ -155,6 +123,81 @@ public class MainActivity extends AppCompatActivity {
 //            startActivity(goToSelectedWorkoutIntent);
 //        });
 //    }
+
+    public void setupWorkoutButtons(){
+        Button cardioButton = this.findViewById(R.id.MainActivityCardioButton);
+        Button neckButton = this.findViewById(R.id.MainActivityNeckButton);
+        Button chestButton = this.findViewById(R.id.MainActivityChestButton);
+        Button backButton = this.findViewById(R.id.MainActivityBackButton);
+        Button shouldersButton = this.findViewById(R.id.MainActivityShouldersButton);
+        Button upperLegsButton = this.findViewById(R.id.MainActivityUpperLegsButton);
+        Button upperArmsButton = this.findViewById(R.id.MainActivityUpperArmsButton);
+        Button waistButton = this.findViewById(R.id.MainActivityWaistButton);
+        Button lowerLegsButton = this.findViewById(R.id.MainActivityLowerLegsButton);
+        Button lowerArmsButton = this.findViewById(R.id.MainActivityLowerArmsButton);
+
+        cardioButton.setOnClickListener(v->{
+            Intent selectedWorkout = new Intent(this, SelectedWorkoutActivity.class);
+            selectedWorkout.putExtra(SelectedWorkoutActivity.workoutTypeString, "cardio");
+            startActivity(selectedWorkout);
+        });
+
+        neckButton.setOnClickListener(v->{
+            Intent selectedWorkout = new Intent(this, SelectedWorkoutActivity.class);
+            selectedWorkout.putExtra(SelectedWorkoutActivity.workoutTypeString, "neck");
+            startActivity(selectedWorkout);
+        });
+
+        chestButton.setOnClickListener(v->{
+            Intent selectedWorkout = new Intent(this, SelectedWorkoutActivity.class);
+            selectedWorkout.putExtra(SelectedWorkoutActivity.workoutTypeString, "chest");
+            startActivity(selectedWorkout);
+        });
+
+        backButton.setOnClickListener(v->{
+            Intent selectedWorkout = new Intent(this, SelectedWorkoutActivity.class);
+            selectedWorkout.putExtra(SelectedWorkoutActivity.workoutTypeString, "back");
+            startActivity(selectedWorkout);
+        });
+
+        shouldersButton.setOnClickListener(v->{
+            Intent selectedWorkout = new Intent(this, SelectedWorkoutActivity.class);
+            selectedWorkout.putExtra(SelectedWorkoutActivity.workoutTypeString, "shoulders");
+            startActivity(selectedWorkout);
+        });
+
+        upperLegsButton.setOnClickListener(v->{
+            Intent selectedWorkout = new Intent(this, SelectedWorkoutActivity.class);
+            selectedWorkout.putExtra(SelectedWorkoutActivity.workoutTypeString, "upper-legs");
+            startActivity(selectedWorkout);
+        });
+
+        upperArmsButton.setOnClickListener(v->{
+            Intent selectedWorkout = new Intent(this, SelectedWorkoutActivity.class);
+            selectedWorkout.putExtra(SelectedWorkoutActivity.workoutTypeString, "upper-arms");
+            startActivity(selectedWorkout);
+        });
+
+        waistButton.setOnClickListener(v->{
+            Intent selectedWorkout = new Intent(this, SelectedWorkoutActivity.class);
+            selectedWorkout.putExtra(SelectedWorkoutActivity.workoutTypeString, "waist");
+            startActivity(selectedWorkout);
+        });
+
+        lowerLegsButton.setOnClickListener(v->{
+            Intent selectedWorkout = new Intent(this, SelectedWorkoutActivity.class);
+            selectedWorkout.putExtra(SelectedWorkoutActivity.workoutTypeString, "lower-legs");
+            startActivity(selectedWorkout);
+        });
+
+        lowerArmsButton.setOnClickListener(v->{
+            Intent selectedWorkout = new Intent(this, SelectedWorkoutActivity.class);
+            selectedWorkout.putExtra(SelectedWorkoutActivity.workoutTypeString, "lower-arms");
+            startActivity(selectedWorkout);
+        });
+
+    }
+
 
 public void intentButtons() {
 

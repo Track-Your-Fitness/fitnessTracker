@@ -5,33 +5,62 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import android.content.Intent;
 import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.fitnessTracker.R;
 import com.example.fitnessTracker.activities.adapter.WorkOutRecyclerViewAdapter;
 import com.example.fitnessTracker.activities.model.WorkOut;
 
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class SelectedWorkoutActivity extends AppCompatActivity {
+    public ArrayList<String> workoutName;
+    public ArrayList<String> workoutBodyPart;
+    public ArrayList<String> workoutEquipment;
+    public ArrayList<String> workoutImage;
     Uri myUri = Uri.parse("http://stackoverflow.com");
+    public static String workoutTypeString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selected_workout);
         recyclerView();
+        consumeExtras();
+    }
+
+    public void consumeExtras(){
+        Intent callingIntent = getIntent();
+        workoutTypeString = callingIntent.getStringExtra(workoutTypeString);
+        workoutName = new ArrayList<>();
+        workoutBodyPart = new ArrayList<>();
+        workoutEquipment = new ArrayList<>();
+        workoutImage = new ArrayList<>();
+        if (callingIntent !=null){
+            workoutName = callingIntent.getStringArrayListExtra(WorkOutRecyclerViewAdapter.WORKOUT_NAME_TAG);
+            workoutBodyPart = callingIntent.getStringArrayListExtra(WorkOutRecyclerViewAdapter.WORKOUT_BODY_PART_TAG);
+            workoutEquipment = callingIntent.getStringArrayListExtra(WorkOutRecyclerViewAdapter.WORKOUT_EQUIPMENT_TAG);
+            workoutImage = callingIntent.getStringArrayListExtra(WorkOutRecyclerViewAdapter.WORKOUT_IMAGE_TAG);
+        }
+        ((TextView) findViewById(R.id.ExerciseFragTVName)).setText((CharSequence) workoutName);
+        ((TextView)findViewById(R.id.ExerciseFragTVBodyPart)).setText((CharSequence) workoutBodyPart);
+        ((TextView)findViewById(R.id.ExerciseFragTVEquipmentUsed)).setText((CharSequence) workoutEquipment);
+//        ((ImageView)findViewById(R.id.UserWorkOutImageTV)).setImageURI(URI);
     }
 
     public void recyclerView(){
 
         List<WorkOut> workOutList = new ArrayList<>();
         WorkOut workOut = new WorkOut("877", "kettlebell alternating row", "back", "upper-back", "kettlebell", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQv5IZLWJtFdrMVq70yPbZh3JGdc0QBkfWFIA&usqp=CAU");
-        WorkOut workOut1 = new WorkOut("421", "cable upper row", "back", "upper-back", "cable", "");
+        WorkOut workOut1 = new WorkOut("421", "cable upper row", "back", "upper-back", "cable", "d");
         WorkOut workOut2 = new WorkOut("76", "band shrug", "back", "traps", "band", "");
         WorkOut workOut3 = new WorkOut("869", "jump rope", "cardio", "cardiovascular-system", "rope", "");
         WorkOut workOut4 = new WorkOut("1027", "mountain climber", "cardio", "cardiovascular-system", "body-weight", "");
