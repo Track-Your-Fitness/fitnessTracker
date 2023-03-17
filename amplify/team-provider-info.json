@@ -1,22 +1,19 @@
 {
-  "dev": {
+  "fitnessapp": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-fitnesstracker-dev-120840-authRole",
-      "UnauthRoleArn": "arn:aws:iam::755310459305:role/amplify-fitnesstracker-dev-120840-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::755310459305:role/amplify-fitnesstracker-dev-120840-authRole",
+      "AuthRoleName": "amplify-fitnesstracker-fitnessapp-182046-authRole",
+      "UnauthRoleArn": "arn:aws:iam::755310459305:role/amplify-fitnesstracker-fitnessapp-182046-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::755310459305:role/amplify-fitnesstracker-fitnessapp-182046-authRole",
       "Region": "us-west-2",
-      "DeploymentBucketName": "amplify-fitnesstracker-dev-120840-deployment",
-      "UnauthRoleName": "amplify-fitnesstracker-dev-120840-unauthRole",
-      "StackName": "amplify-fitnesstracker-dev-120840",
-      "StackId": "arn:aws:cloudformation:us-west-2:755310459305:stack/amplify-fitnesstracker-dev-120840/cd22a8a0-c364-11ed-9f8e-06eb6e763339",
+      "DeploymentBucketName": "amplify-fitnesstracker-fitnessapp-182046-deployment",
+      "UnauthRoleName": "amplify-fitnesstracker-fitnessapp-182046-unauthRole",
+      "StackName": "amplify-fitnesstracker-fitnessapp-182046",
+      "StackId": "arn:aws:cloudformation:us-west-2:755310459305:stack/amplify-fitnesstracker-fitnessapp-182046/f2892760-c461-11ed-991b-062a1003c6fd",
       "AmplifyAppId": "d1xkdhiz4srdy9"
     },
     "categories": {
       "auth": {
         "fitnesstrackerf20f576b": {}
-      },
-      "api": {
-        "fitnesstracker": {}
       },
       "storage": {
         "s3a3b7f267": {}
