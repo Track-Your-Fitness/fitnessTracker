@@ -63,24 +63,8 @@ public class UserWorkoutActivity extends AppCompatActivity {
             }
             return false;
         });
+
     }
 
-    public void consumeExtras(){
-        Intent callingIntent = getIntent();
-        String workoutName = null;
-        String workoutBodyPart = null;
-        String workoutEquipment = null;
-        String workoutImage = null;
-            if (callingIntent !=null){
-                workoutName = callingIntent.getStringExtra(WorkOutRecyclerViewAdapter.WORKOUT_NAME_TAG);
-                workoutBodyPart = callingIntent.getStringExtra(WorkOutRecyclerViewAdapter.WORKOUT_BODY_PART_TAG);
-                workoutEquipment = callingIntent.getStringExtra(WorkOutRecyclerViewAdapter.WORKOUT_EQUIPMENT_TAG);
-                workoutImage = callingIntent.getStringExtra(WorkOutRecyclerViewAdapter.WORKOUT_IMAGE_TAG);
-            }
-        ((TextView)findViewById(R.id.UserWorkoutWorkoutNameTV)).setText(workoutName);
-        ((TextView)findViewById(R.id.UserWorkoutBodyPartTV)).setText(workoutBodyPart);
-        ((TextView)findViewById(R.id.UserWorkOutEquipmentTV)).setText(workoutEquipment);
-//        ((ImageView)findViewById(R.id.UserWorkOutImageTV)).setImageURI(workoutImage);
-    }
 
 }

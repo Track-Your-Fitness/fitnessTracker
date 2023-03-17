@@ -50,6 +50,16 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="selectedWorkoutImage">Selected Workout Image</string>
+    <string name="back">Back</string>
+    <string name="cardio">Cardio</string>
+    <string name="chest">Chest</string>
+    <string name="lowerArms">Lower Arms</string>
+    <string name="lowerLegs">Lower Legs</string>
+    <string name="neck">Neck</string>
+    <string name="shoulders">Shoulders</string>
+    <string name="upperArms">Upper Arms</string>
+    <string name="upperLegs">Upper Legs</string>
+    <string name="waist">Waist</string>
     <string name="nameTVUserProfile">Name</string>
     <string name="agetv">Age</string>
     <string name="usernametv">Username</string>

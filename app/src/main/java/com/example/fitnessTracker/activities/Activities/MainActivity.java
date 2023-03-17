@@ -77,9 +77,9 @@ public class MainActivity extends AppCompatActivity {
 
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
 
+        setupWorkoutButtons();
+        intentButtons();
 
-
-//        logoutButton = findViewById(R.id.MainActivityLogoOutBtn);
 
 
         if (android.os.Build.VERSION.SDK_INT > 9) {
@@ -144,8 +144,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-
     @Override
     protected void onResume() {
         super.onResume();
@@ -207,8 +205,111 @@ public class MainActivity extends AppCompatActivity {
 //            Intent goToUserSettingsIntent = new Intent(this, UserSettingsActivity.class);
 //            startActivity(goToUserSettingsIntent);
 //        });
+//    }
+
+    public void setupWorkoutButtons(){
+        Button cardioButton = this.findViewById(R.id.MainActivityCardioButton);
+        Button neckButton = this.findViewById(R.id.MainActivityNeckButton);
+        Button chestButton = this.findViewById(R.id.MainActivityChestButton);
+        Button backButton = this.findViewById(R.id.MainActivityBackButton);
+        Button shouldersButton = this.findViewById(R.id.MainActivityShouldersButton);
+        Button upperLegsButton = this.findViewById(R.id.MainActivityUpperLegsButton);
+        Button upperArmsButton = this.findViewById(R.id.MainActivityUpperArmsButton);
+        Button waistButton = this.findViewById(R.id.MainActivityWaistButton);
+        Button lowerLegsButton = this.findViewById(R.id.MainActivityLowerLegsButton);
+        Button lowerArmsButton = this.findViewById(R.id.MainActivityLowerArmsButton);
+
+        cardioButton.setOnClickListener(v->{
+            Intent selectedWorkout = new Intent(this, SelectedWorkoutActivity.class);
+            selectedWorkout.putExtra(SelectedWorkoutActivity.workoutTypeString, "cardio");
+            startActivity(selectedWorkout);
+        });
+
+        neckButton.setOnClickListener(v->{
+            Intent selectedWorkout = new Intent(this, SelectedWorkoutActivity.class);
+            selectedWorkout.putExtra(SelectedWorkoutActivity.workoutTypeString, "neck");
+            startActivity(selectedWorkout);
+        });
+
+        chestButton.setOnClickListener(v->{
+            Intent selectedWorkout = new Intent(this, SelectedWorkoutActivity.class);
+            selectedWorkout.putExtra(SelectedWorkoutActivity.workoutTypeString, "chest");
+            startActivity(selectedWorkout);
+        });
+
+        backButton.setOnClickListener(v->{
+            Intent selectedWorkout = new Intent(this, SelectedWorkoutActivity.class);
+            selectedWorkout.putExtra(SelectedWorkoutActivity.workoutTypeString, "back");
+            startActivity(selectedWorkout);
+        });
+
+        shouldersButton.setOnClickListener(v->{
+            Intent selectedWorkout = new Intent(this, SelectedWorkoutActivity.class);
+            selectedWorkout.putExtra(SelectedWorkoutActivity.workoutTypeString, "shoulders");
+            startActivity(selectedWorkout);
+        });
+
+        upperLegsButton.setOnClickListener(v->{
+            Intent selectedWorkout = new Intent(this, SelectedWorkoutActivity.class);
+            selectedWorkout.putExtra(SelectedWorkoutActivity.workoutTypeString, "upper-legs");
+            startActivity(selectedWorkout);
+        });
+
+        upperArmsButton.setOnClickListener(v->{
+            Intent selectedWorkout = new Intent(this, SelectedWorkoutActivity.class);
+            selectedWorkout.putExtra(SelectedWorkoutActivity.workoutTypeString, "upper-arms");
+            startActivity(selectedWorkout);
+        });
+
+        waistButton.setOnClickListener(v->{
+            Intent selectedWorkout = new Intent(this, SelectedWorkoutActivity.class);
+            selectedWorkout.putExtra(SelectedWorkoutActivity.workoutTypeString, "waist");
+            startActivity(selectedWorkout);
+        });
+
+        lowerLegsButton.setOnClickListener(v->{
+            Intent selectedWorkout = new Intent(this, SelectedWorkoutActivity.class);
+            selectedWorkout.putExtra(SelectedWorkoutActivity.workoutTypeString, "lower-legs");
+            startActivity(selectedWorkout);
+        });
+
+        lowerArmsButton.setOnClickListener(v->{
+            Intent selectedWorkout = new Intent(this, SelectedWorkoutActivity.class);
+            selectedWorkout.putExtra(SelectedWorkoutActivity.workoutTypeString, "lower-arms");
+            startActivity(selectedWorkout);
+        });
+
+    }
+
+
+public void intentButtons() {
+
+    ImageView userProfileButton = (ImageView) findViewById(R.id.MainActivityUserProfileBtn);
+    userProfileButton.setOnClickListener(v -> {
+        Intent goToUserProfileIntent = new Intent(this, UserProfileActivity.class);
+        startActivity(goToUserProfileIntent);
+    });
+    ImageView selectWorkoutButton = (ImageView) findViewById(R.id.SelectWorkoutButton);
+    selectWorkoutButton.setOnClickListener(v -> {
+        Intent goToSelectWorkoutIntent = new Intent(this, WorkOutCategoryActivity.class);
+        startActivity(goToSelectWorkoutIntent);
+    });
+    ImageView userPastWorkoutsButton = (ImageView) findViewById(R.id.MainActivityYourWorkoutBttn);
+    userPastWorkoutsButton.setOnClickListener(v -> {
+        Intent goToUserWorkoutIntent = new Intent(this, UserWorkoutActivity.class);
+        startActivity(goToUserWorkoutIntent);
+    });
+    ImageView userSettingsButton = (ImageView) findViewById(R.id.MainActivitySettingsImg);
+    userSettingsButton.setOnClickListener(v -> {
+        Intent goToUserSettingsIntent = new Intent(this, UserSettingsActivity.class);
+        startActivity(goToUserSettingsIntent);
+    });
+
+}}
+
 
 
 
 }
+
 
