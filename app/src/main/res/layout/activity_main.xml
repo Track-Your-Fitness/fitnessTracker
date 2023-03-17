@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context="com.example.fitnessTracker.activities.Activities.MainActivity">
 
+
     <TextView
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
@@ -21,34 +22,31 @@
         android:id="@+id/MainActivitySettingsImg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:background="#B60000"
-        android:contentDescription="@string/settingsBtn"
-        android:src="@android:drawable/ic_menu_preferences"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/bottom_background"
+        android:elevation="2dp"
+        app:itemIconSize="30dp"
+        app:itemIconTint="@drawable/item_selector"
+        app:itemRippleColor="@android:color/transparent"
+        app:labelVisibilityMode="unlabeled"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <Button
-
-        android:id="@+id/MainActivityLogoOutBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="#B60000"
-        android:text="@string/LogoutBtn"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:menu="@menu/bottom_menu" />
+
+
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="76dp"
-        android:text="@string/welcome"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="116dp"
+        android:fontFamily="@font/goldman_bold"
+        android:text="Username"
+        android:textColor="#0A100D"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -58,37 +56,18 @@
         android:id="@+id/MainUsernameDisplay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="76dp"
-        android:text="@string/username"
+
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="116dp"
+        android:fontFamily="@font/goldman_bold"
+        android:text="Welcome:"
+        android:textColor="#0A100D"
+
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/textView4"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="70dp"
-        android:layout_marginBottom="1dp"
-        android:text="@string/yourWorkouts"
-        android:textSize="10sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-        app:layout_constraintStart_toEndOf="@+id/textView5" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
-        android:text="@string/selectAWorkout"
-        android:textColor="#020202"
-        android:textSize="10sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-        app:layout_constraintStart_toEndOf="@+id/textView7" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -101,48 +80,18 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent">
 
-        <Space
-            android:layout_width="32dp"
-            android:layout_height="25dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="648dp" />
-
-        <ImageView
-            android:id="@+id/MainActivityUserProfileBtn"
-            android:layout_width="70dp"
-            android:layout_height="45dp"
-            app:srcCompat="@drawable/profile"
-            tools:srcCompat="@tools:sample/avatars" />
-
-        <Space
-            android:layout_width="70dp"
-            android:layout_height="20dp" />
-
-        <ImageView
-            android:id="@+id/SelectWorkoutButton"
-            android:layout_width="70dp"
-            android:layout_height="45dp"
-            app:srcCompat="@drawable/workout1"
-            tools:srcCompat="@tools:sample/avatars" />
-
-        <Space
-            android:layout_width="70dp"
-            android:layout_height="25dp" />
-
-        <ImageView
-            android:id="@+id/MainActivityYourWorkoutBttn"
-            android:layout_width="70dp"
-            android:layout_height="45dp"
-            app:srcCompat="@drawable/weights"
-            tools:srcCompat="@tools:sample/avatars"
-
-            />
-
-        <Space
-            android:layout_width="30dp"
-            android:layout_height="18dp" />
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/mainActivityNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="20dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView6"

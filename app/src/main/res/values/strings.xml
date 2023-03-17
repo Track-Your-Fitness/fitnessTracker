@@ -60,5 +60,14 @@
     <string name="upperArms">Upper Arms</string>
     <string name="upperLegs">Upper Legs</string>
     <string name="waist">Waist</string>
+    <string name="nameTVUserProfile">Name</string>
+    <string name="agetv">Age</string>
+    <string name="usernametv">Username</string>
+    <string name="weighttv">Weight</string>
+    <string name="heighttv">Height</string>
+    <string name="targetWeightTv">Target Weight</string>
+    <string name="userProfileImg">Profile Image</string>
+    <string name="nameTag">Name</string>
+    <string name="nameTextView">name</string>
 
 </resources>

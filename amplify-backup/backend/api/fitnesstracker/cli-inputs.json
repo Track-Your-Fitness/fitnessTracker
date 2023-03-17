@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "serviceConfiguration": {
+    "apiName": "fitnesstracker",
+    "serviceName": "AppSync",
+    "defaultAuthType": {
+      "mode": "API_KEY",
+      "expirationTime": 60,
+      "apiKeyExpirationDate": "2023-05-16T00:16:19.809Z",
+      "keyDescription": "fitnessTracker"
+    },
+    "conflictResolution": {},
+    "additionalAuthTypes": []
+  }
+}

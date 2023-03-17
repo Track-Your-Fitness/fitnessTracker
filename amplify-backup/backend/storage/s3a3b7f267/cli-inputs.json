@@ -1,0 +1,14 @@
+{
+  "resourceName": "s3a3b7f267",
+  "policyUUID": "a3b7f267",
+  "bucketName": "fitnesstracker6bb43fa03a03404fb6a5bf46954bfbda",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ],
+  "triggerFunction": "NONE",
+  "groupAccess": {}
+}
