@@ -19,5 +19,12 @@
         "s3a3b7f267": {}
       }
     }
+  },
+  "dev": {
+    "categories": {
+      "auth": {
+        "fitnesstrackerf20f576b": {}
+      }
+    }
   }
 }

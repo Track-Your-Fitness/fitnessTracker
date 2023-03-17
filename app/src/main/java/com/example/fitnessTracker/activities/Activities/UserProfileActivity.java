@@ -1,11 +1,12 @@
 package com.example.fitnessTracker.activities.Activities;
 
-import static com.example.fitnessTracker.activities.Activities.MainActivity.NAME_TAG;
+//import static com.example.fitnessTracker.activities.Activities.MainActivity.NAME_TAG;
 import static com.example.fitnessTracker.activities.Activities.MainActivity.USER_USERNAME_TAG;
 import static com.example.fitnessTracker.activities.Activities.UserSettingsActivity.USER_AGE_TAG;
 import static com.example.fitnessTracker.activities.Activities.UserSettingsActivity.USER_HEIGHT_TAG;
 import static com.example.fitnessTracker.activities.Activities.UserSettingsActivity.USER_TARGET_WEIGHT_TAG;
 import static com.example.fitnessTracker.activities.Activities.UserSettingsActivity.USER_WEIGHT_TAG;
+import static com.example.fitnessTracker.activities.AuthActivites.SignUpActivity.NAME_TAG;
 
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
@@ -17,11 +18,13 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.provider.OpenableColumns;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -56,7 +59,7 @@ public class UserProfileActivity extends AppCompatActivity {
 
         activityResultLauncher = getImagePickingActivityResultLauncher();
 
-//        setUpAddImgBtn();
+        setUpAddImgBtn();
         renderQuotes();
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
@@ -119,12 +122,12 @@ public class UserProfileActivity extends AppCompatActivity {
         ((TextView)findViewById(R.id.userProfileActivityNameTextView)).setText(name);
     }
 
-//    public void setUpAddImgBtn() {
-//        // on click listener -> launch the img picking intent
-//        findViewById(R.id.UserProfileImagePicker).setOnClickListener(v -> {
-//            launchImageSelectionIntent();
-//        });
-//    }
+    public void setUpAddImgBtn() {
+        // on click listener -> launch the img picking intent
+        findViewById(R.id.UserProfileImagePicker).setOnClickListener(v -> {
+            launchImageSelectionIntent();
+        });
+    }
 
     public void launchImageSelectionIntent(){
         // OnActivityResult
@@ -151,7 +154,7 @@ public class UserProfileActivity extends AppCompatActivity {
 
                         }
                     }
-                }
+                } 
         );
         return imagePickingActivityResultLauncher;
     }
@@ -164,14 +167,14 @@ public class UserProfileActivity extends AppCompatActivity {
                 success -> {
                     Log.i(TAG, "SUCCESS! Uploaded file to S3! Filename is: " + success.getKey());
                     s3ImageKey = pickedImageFileName;
-//                    ImageView profileImageView = findViewById(R.id.UserProfileImagePicker);
+                    ImageView profileImageView = findViewById(R.id.UserProfileImagePicker);
                     InputStream pickedImageInputStreamCopy = null;
                     try {
                         pickedImageInputStreamCopy = getContentResolver().openInputStream(pickedImageFileUri);
                     } catch (FileNotFoundException fnfe) {
                         Log.e(TAG, "Could not get file stream from URI! " + fnfe.getMessage(), fnfe);
                     }
-//                    profileImageView.setImageBitmap(BitmapFactory.decodeStream(pickedImageInputStreamCopy));
+                    profileImageView.setImageBitmap(BitmapFactory.decodeStream(pickedImageInputStreamCopy));
                 },
                 failure -> Log.e(TAG, "FAILED to upload file to S3 with filename: " + pickedImageFileName + " with error: " + failure)
         );
