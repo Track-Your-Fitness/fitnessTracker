@@ -15,7 +15,9 @@
         android:layout_height="50dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/black_ops_one"
         android:text="@string/bodyPart"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ExerciseFragTVName" />
 
@@ -25,7 +27,10 @@
         android:layout_height="50dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
+        android:fontFamily="@font/black_ops_one"
         android:text="@string/name"
+        android:textColor="#070707"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -35,7 +40,9 @@
         android:layout_height="50dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/black_ops_one"
         android:text="@string/equipmentUsed"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ExerciseFragTVBodyPart" />
 

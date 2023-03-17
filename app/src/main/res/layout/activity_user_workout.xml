@@ -25,22 +25,15 @@
         app:menu="@menu/bottom_menu" />
 
     <TextView
-        android:id="@+id/UserWorkoutTextViewCurrentWorkout"
-        android:layout_width="174dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="116dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/currentWorkouts"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
         android:id="@+id/UserWorkoutWorkoutNameTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="352dp"
+        android:layout_height="55dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/black_ops_one"
         android:text="Exercise: Straight Arm Lat Pulldown"
+        android:textColor="#3E3A3A"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -49,18 +42,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="51dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/black_ops_one"
         android:text="Target: Back"
+        android:textColor="#3E3A3A"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/UserWorkoutWorkoutNameTV" />
 
     <TextView
         android:id="@+id/UserWorkOutEquipmentTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="343dp"
+        android:layout_height="49dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/black_ops_one"
         android:text="Equipment Needed: Lat Bar w/Cable"
+        android:textColor="#3E3A3A"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/UserWorkoutBodyPartTV" />
 

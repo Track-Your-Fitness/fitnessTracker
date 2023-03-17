@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     tools:context="com.example.fitnessTracker.activities.AuthActivites.LoginActivity">
 
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="394dp"
+        android:layout_height="578dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.625"
+        app:srcCompat="@drawable/logo" />
+
     <Button
         android:id="@+id/loginActivitySignUpButton"
         android:layout_width="wrap_content"
@@ -32,21 +44,22 @@
         android:id="@+id/loginActivityLoginTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="176dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginBottom="4dp"
         android:fontFamily="@font/goldman_bold"
         android:text="@string/loginTitle"
         android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         tools:textColor="#0A100D" />
 
     <EditText
         android:id="@+id/loginActivityPasswordEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="92dp"
-        android:layout_marginBottom="216dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="308dp"
         android:ems="10"
         android:inputType="textPassword"
         app:layout_constraintBottom_toTopOf="@+id/loginActivitySignUpButton"
@@ -56,8 +69,8 @@
         android:id="@+id/loginActivityEmailEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="112dp"
-        android:layout_marginEnd="92dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="100dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:textColor="#0A100D"
@@ -68,8 +81,8 @@
         android:id="@+id/loginActivityEmailTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="224dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="136dp"
         android:fontFamily="@font/goldman_bold"
         android:text="@string/loginEmailEditText"
         android:textColor="#0A100D"
@@ -81,12 +94,13 @@
         android:id="@+id/loginActivityPasswordTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="284dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="188dp"
         android:fontFamily="@font/goldman_bold"
         android:text="@string/loginPasswordTextView"
         android:textColor="#0A100D"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
