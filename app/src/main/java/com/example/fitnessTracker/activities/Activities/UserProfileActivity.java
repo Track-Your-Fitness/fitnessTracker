@@ -154,7 +154,7 @@ public class UserProfileActivity extends AppCompatActivity {
 
                         }
                     }
-                }
+                } 
         );
         return imagePickingActivityResultLauncher;
     }
