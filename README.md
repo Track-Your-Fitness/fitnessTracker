@@ -10,7 +10,6 @@
 | [Database](https://github.com/Track-Your-Fitness/fitnessTracker/blob/staging/README.md#data-base)            |
 | [Schema](https://github.com/Track-Your-Fitness/fitnessTracker/blob/staging/README.md#schema)                 |
 | [WRRC](https://github.com/Track-Your-Fitness/fitnessTracker/blob/staging/README.md#wrrc)                     |
-| [Tutorial](https://github.com/Track-Your-Fitness/fitnessTracker/blob/staging/README.md#tutorial)             |
 
 ## Collaborators
 
@@ -258,9 +257,3 @@ Security with AWS Cognito will be used to allow secure login to users accounts. 
 ## WRRC
 
 <img width="1069" alt="WRRC" src="https://user-images.githubusercontent.com/115438182/224453887-05fb23c2-f478-4f77-b07d-0a106cb9b2fe.png">
-
-# Tutorial
-
-
-
-
