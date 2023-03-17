@@ -21,7 +21,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     public final String TAG = "sign_up_activity";
     public static final String USER_EMAIL = "user_email";
-    static final String NAME_TAG = "name";
+    public static final String NAME_TAG = "name";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

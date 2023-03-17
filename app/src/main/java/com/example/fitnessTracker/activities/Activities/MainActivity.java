@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.os.StrictMode;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 
@@ -17,13 +16,11 @@ import com.amplifyframework.core.Amplify;
 import com.example.fitnessTracker.R;
 import com.example.fitnessTracker.activities.AuthActivites.LoginActivity;
 import com.example.fitnessTracker.activities.UserWorkout.SelectedCategoryActivity;
-import com.example.fitnessTracker.activities.UserWorkout.SelectedWorkoutActivity;
 import com.example.fitnessTracker.activities.UserWorkout.UserWorkoutActivity;
 import com.example.fitnessTracker.activities.UserWorkout.WorkOutCategoryActivity;
 //package com.example.testrapidapi;
 import android.preference.PreferenceManager;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.io.BufferedWriter;
@@ -32,7 +29,6 @@ import java.io.IOException;
 
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -72,10 +68,6 @@ public class MainActivity extends AppCompatActivity {
     public static final String TAG = "mainActivity";
     public static final String USER_INPUT_EXTRA_TAG = "userInput";
     public static final String USER_USERNAME_TAG = "userName";
-    static final String NAME_TAG = "name";
-
-//    Spinner bodyPartSpinner;
-//    Spinner equipmentUsedSpinner;
 
 
     @Override
@@ -83,28 +75,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
 
-        apiRequesterWithHeaders();
 
-        logoutButton = findViewById(R.id.MainActivityLogoOutBtn);
 
-        intentButtons();
+//        logoutButton = findViewById(R.id.MainActivityLogoOutBtn);
+
 
         if (android.os.Build.VERSION.SDK_INT > 9) {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
         }
 
-
-//        ImageView settingsButton = (ImageView) findViewById(R.id.MainActivitySettingsImg);
-//        settingsButton.setOnClickListener(v -> {
-////            String userInput = ((EditText)findViewById(R.id.)).getText().toString();
-//            Intent goToUserSettingsIntent = new Intent(this, UserSettingsActivity.class);
-////            goToUserSettingsIntent.putExtra(, userInput);
-//            startActivity(goToUserSettingsIntent);
-//        });
 
         File exampleFile = new File(getApplicationContext().getFilesDir(), "ExampleKey");
 
@@ -122,7 +104,6 @@ public class MainActivity extends AppCompatActivity {
 //                success -> Log.i(TAG, "Successfully uploaded: " + success.getKey()),
 //                failure -> Log.e(TAG, "Upload failed", failure)
 //        );
-
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setSelectedItemId(R.id.bottom_home);
 
@@ -164,89 +145,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    private void apiRequesterWithHeaders(){
-        RequestQueue queue = Volley.newRequestQueue(this);
-        //do not need this (only used this to explain its from field variable).
-        String url = "https://exercises2.p.rapidapi.com/"; //TODO: need to add a meaningful request otherwise this will return the whole dom!
-        String apiKey = "205fe69fc7msh9938514ab2ba523p1bca7cjsnc28159e1568b";
-        StringRequest getRequest = new StringRequest(Request.Method.GET, url,
-                response -> {
-                    // response
-//                    Log.d("Response", response);
-//                    final TextView textView = (TextView) findViewById(R.id.apiTextView);
-//                    textView.setText(response);
-                },
-                error -> {
-                    Log.d("ERROR","error => "+error.toString());
-                }
-        ) {
-            @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
-                Map<String, String>  params = new HashMap<String, String>();
-                params.put("X-RapidAPI-Key", "0c2becdfa7mshb9a3c113775cbdep163e0djsn8543d4ba6d1a");
-                params.put("X-RapidAPI-Host", "exercises2.p.rapidapi.com");
-
-                return params;
-            }
-        };
-        queue.add(getRequest);
-        return;
-
-    public void setUpSpinners (){
-//        bodyPartSpinner.setAdapter(new ArrayAdapter<>(
-//                this,
-//                android.R.layout.simple_spinner_item,
-//
-//        ));
-
-    }
-
-
-    /**
-     * Method that will use rapidapi to get content. log.d will show what is being extracted when running program.
-     * @throws NullPointerException if url is null.
-     */
-    private void apiRequesterWithHeaders() {
-        // run the API request in a background thread
-        new Thread(() -> {
-            OkHttpClient client = new OkHttpClient();
-            String apiUrl = "https://exercises2.p.rapidapi.com/?bodyPart=chest";
-            String apiKey ="205fe69fc7msh9938514ab2ba523p1bca7cjsnc28159e1568b";// <"replace me with yourAPI key" >
-
-            Request request = new Request.Builder()
-                    .url(apiUrl)
-                    .get()
-                    .addHeader("X-RapidAPI-Key", apiKey)
-                    .addHeader("X-RapidAPI-Host", "exercises2.p.rapidapi.com")
-                    .build();
-
-            try {
-                Response response = client.newCall(request).execute();
-                String responseBody = response.body().string();
-                System.out.println(response);
-                //parsing data from here
-
-                // update the UI on the main thread
-                runOnUiThread(() -> {
-                    final TextView textView = findViewById(R.id.apiTextView);
-                    textView.setText(responseBody);
-                });
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-//            final TextView textView = (TextView) findViewById(R.id.apiTextView);
-//            textView.setText(fitnessString);
-        }, error -> Toast.makeText(MainActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show());
-
-        queue.add(request);
-    }
-
-
-        }).start();
-    }
-
-
 
     @Override
     protected void onResume() {
@@ -257,40 +155,60 @@ public class MainActivity extends AppCompatActivity {
         ((TextView)findViewById(R.id.MainUsernameDisplay)).setText(userName);
     }
 
-public void intentButtons() {
 
     public void renderButtons() {
+        final String[] username = {preferences.getString(USER_NAME_TAG, "no username")};
 
-
-}}
         if (authUser != null) {
             logoutButton.setVisibility(View.VISIBLE);
         } else {
             logoutButton.setVisibility(View.INVISIBLE);
         }
+        Amplify.Auth.getCurrentUser(
+                success -> {
+                    Log.i(TAG, "Got Current User");
+                    username[0] = success.getUsername();
+                },
+                failure -> {
+                }
+        );
+
+        logoutButton.setOnClickListener(v -> Amplify.Auth.signOut(
+                success -> {
+                    Log.i(TAG, "User successfully logged out.");
+                    authUser = null;
+                    runOnUiThread(this::renderButtons);
+                    Intent goToLoginActivityIntent = new Intent(this, LoginActivity.class);
+                    startActivity(goToLoginActivityIntent);
+                }
+        ));
     }
 
-public void intentButtons() {
 
-    final String[] username = {preferences.getString(USER_NAME_TAG, "no username")};
 
-    Amplify.Auth.getCurrentUser(
-            success -> {
-                Log.i(TAG, "Got Current User");
-                username[0] = success.getUsername();
-            },
-            failure -> {
-            }
-    );
 
-    logoutButton.setOnClickListener(v -> Amplify.Auth.signOut(
-            success -> {
-                Log.i(TAG, "User successfully logged out.");
-                authUser = null;
-                runOnUiThread(this::renderButtons);
-                Intent goToLoginActivityIntent = new Intent(this, LoginActivity.class);
-                startActivity(goToLoginActivityIntent);
-            }
-    ));
+//        ImageView userProfileButton = (ImageView) findViewById(R.id.MainActivityUserProfileBtn);
+//        userProfileButton.setOnClickListener(v -> {
+//            Intent goToUserProfileIntent = new Intent(this, UserProfileActivity.class);
+//            startActivity(goToUserProfileIntent);
+//        });
+//        ImageView selectWorkoutButton = (ImageView) findViewById(R.id.SelectWorkoutButton);
+//        selectWorkoutButton.setOnClickListener(v -> {
+//            Intent goToSelectWorkoutIntent = new Intent(this, WorkOutCategoryActivity.class);
+//            startActivity(goToSelectWorkoutIntent);
+//        });
+//        ImageView userPastWorkoutsButton = (ImageView) findViewById(R.id.MainActivityYourWorkoutBttn);
+//        userPastWorkoutsButton.setOnClickListener(v -> {
+//            Intent goToUserWorkoutIntent = new Intent(this, UserWorkoutActivity.class);
+//            startActivity(goToUserWorkoutIntent);
+//        });
+//        ImageView userSettingsButton = (ImageView) findViewById(R.id.MainActivitySettingsImg);
+//        userSettingsButton.setOnClickListener(v -> {
+//            Intent goToUserSettingsIntent = new Intent(this, UserSettingsActivity.class);
+//            startActivity(goToUserSettingsIntent);
+//        });
+
+
+
 }
 
