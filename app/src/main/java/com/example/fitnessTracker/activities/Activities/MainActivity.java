@@ -16,6 +16,7 @@ import com.amplifyframework.core.Amplify;
 import com.example.fitnessTracker.R;
 import com.example.fitnessTracker.activities.AuthActivites.LoginActivity;
 import com.example.fitnessTracker.activities.UserWorkout.SelectedCategoryActivity;
+import com.example.fitnessTracker.activities.UserWorkout.SelectedWorkoutActivity;
 import com.example.fitnessTracker.activities.UserWorkout.UserWorkoutActivity;
 import com.example.fitnessTracker.activities.UserWorkout.WorkOutCategoryActivity;
 //package com.example.testrapidapi;
@@ -78,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
 
         setupWorkoutButtons();
-        intentButtons();
+
 
 
 
@@ -219,6 +220,12 @@ public class MainActivity extends AppCompatActivity {
         Button lowerLegsButton = this.findViewById(R.id.MainActivityLowerLegsButton);
         Button lowerArmsButton = this.findViewById(R.id.MainActivityLowerArmsButton);
 
+        Button workoutIntentButton = (Button) findViewById(R.id.MainActivityBackButton);
+        workoutIntentButton.setOnClickListener(v -> {
+            Intent goToWorkoutIntent = new Intent(this, SelectedWorkoutActivity.class);
+            startActivity(goToWorkoutIntent);
+        });
+
         cardioButton.setOnClickListener(v->{
             Intent selectedWorkout = new Intent(this, SelectedWorkoutActivity.class);
             selectedWorkout.putExtra(SelectedWorkoutActivity.workoutTypeString, "cardio");
@@ -280,36 +287,36 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-
-
-public void intentButtons() {
-
-    ImageView userProfileButton = (ImageView) findViewById(R.id.MainActivityUserProfileBtn);
-    userProfileButton.setOnClickListener(v -> {
-        Intent goToUserProfileIntent = new Intent(this, UserProfileActivity.class);
-        startActivity(goToUserProfileIntent);
-    });
-    ImageView selectWorkoutButton = (ImageView) findViewById(R.id.SelectWorkoutButton);
-    selectWorkoutButton.setOnClickListener(v -> {
-        Intent goToSelectWorkoutIntent = new Intent(this, WorkOutCategoryActivity.class);
-        startActivity(goToSelectWorkoutIntent);
-    });
-    ImageView userPastWorkoutsButton = (ImageView) findViewById(R.id.MainActivityYourWorkoutBttn);
-    userPastWorkoutsButton.setOnClickListener(v -> {
-        Intent goToUserWorkoutIntent = new Intent(this, UserWorkoutActivity.class);
-        startActivity(goToUserWorkoutIntent);
-    });
-    ImageView userSettingsButton = (ImageView) findViewById(R.id.MainActivitySettingsImg);
-    userSettingsButton.setOnClickListener(v -> {
-        Intent goToUserSettingsIntent = new Intent(this, UserSettingsActivity.class);
-        startActivity(goToUserSettingsIntent);
-    });
-
-}}
-
-
-
-
 }
+
+
+//public void intentButtons() {
+//
+//    ImageView userProfileButton = (ImageView) findViewById(R.id.MainActivityUserProfileBtn);
+//    userProfileButton.setOnClickListener(v -> {
+//        Intent goToUserProfileIntent = new Intent(this, UserProfileActivity.class);
+//        startActivity(goToUserProfileIntent);
+//    });
+//    ImageView selectWorkoutButton = (ImageView) findViewById(R.id.SelectWorkoutButton);
+//    selectWorkoutButton.setOnClickListener(v -> {
+//        Intent goToSelectWorkoutIntent = new Intent(this, WorkOutCategoryActivity.class);
+//        startActivity(goToSelectWorkoutIntent);
+//    });
+//    ImageView userPastWorkoutsButton = (ImageView) findViewById(R.id.MainActivityYourWorkoutBttn);
+//    userPastWorkoutsButton.setOnClickListener(v -> {
+//        Intent goToUserWorkoutIntent = new Intent(this, UserWorkoutActivity.class);
+//        startActivity(goToUserWorkoutIntent);
+//    });
+//    ImageView userSettingsButton = (ImageView) findViewById(R.id.MainActivitySettingsImg);
+//    userSettingsButton.setOnClickListener(v -> {
+//        Intent goToUserSettingsIntent = new Intent(this, UserSettingsActivity.class);
+//        startActivity(goToUserSettingsIntent);
+//    });
+
+//}}
+
+
+
+
 
 

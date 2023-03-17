@@ -29,7 +29,7 @@
         android:layout_width="174dp"
         android:layout_height="48dp"
         android:layout_marginStart="116dp"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="16dp"
         android:text="@string/currentWorkouts"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -38,9 +38,9 @@
         android:id="@+id/UserWorkoutWorkoutNameTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="55dp"
-        android:layout_marginTop="197dp"
-        android:text="@string/name"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="60dp"
+        android:text="Exercise: Straight Arm Lat Pulldown"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -48,9 +48,9 @@
         android:id="@+id/UserWorkoutBodyPartTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="55dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="51dp"
-        android:text="@string/bodyPart"
+        android:text="Target: Back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/UserWorkoutWorkoutNameTV" />
 
@@ -58,21 +58,22 @@
         android:id="@+id/UserWorkOutEquipmentTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="58dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="70dp"
-        android:text="@string/equipmentUsed"
+        android:text="Equipment Needed: Lat Bar w/Cable"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/UserWorkoutBodyPartTV" />
 
-    <ImageView
+    <pl.droidsonroids.gif.GifImageView
         android:id="@+id/UserWorkOutImageTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="96dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginBottom="12dp"
         android:contentDescription="@string/selectedWorkoutImage"
-        app:layout_constraintStart_toEndOf="@+id/UserWorkoutWorkoutNameTV"
-        app:layout_constraintTop_toBottomOf="@+id/UserWorkoutTextViewCurrentWorkout"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:src="@drawable/back1"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
