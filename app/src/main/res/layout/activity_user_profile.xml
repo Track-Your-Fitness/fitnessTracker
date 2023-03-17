@@ -24,17 +24,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_menu" />
 
-    <ImageView
-        android:id="@+id/UserProfileImageViewUserImage"
-        android:layout_width="124dp"
-        android:layout_height="125dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:contentDescription="@string/userImage"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
-
     <TextView
         android:id="@+id/UserProfileTextViewUserName"
         android:layout_width="wrap_content"
@@ -52,8 +41,8 @@
         android:id="@+id/UserProfileTextViewAge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="44dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="40dp"
         android:fontFamily="@font/goldman_bold"
         android:text="@string/age"
         android:textColor="#0A100D"
@@ -65,21 +54,20 @@
         android:id="@+id/UserProfileAgeTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginEnd="52dp"
         android:fontFamily="@font/goldman_bold"
         android:text="@string/agetv"
         android:textColor="#0A100D"
         android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/UserProfileTextViewAge"
-        app:layout_constraintTop_toBottomOf="@+id/UserProfileNameTV" />
+        app:layout_constraintBottom_toTopOf="@+id/UserProfileTextViewAge"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/userProfileActivityNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="88dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="20dp"
         android:fontFamily="@font/goldman_bold"
         android:text="@string/nameTextView"
         android:textColor="#0A100D"
@@ -91,27 +79,25 @@
         android:id="@+id/userProfileActivityNameTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginEnd="48dp"
         android:fontFamily="@font/goldman_bold"
         android:text="@string/nameTag"
         android:textColor="#0A100D"
         android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/UserProfileImageViewUserImage"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/userProfileActivityNameTextView"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/UserProfileNameTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="24dp"
         android:fontFamily="@font/goldman_bold"
         android:text="@string/usernametv"
         android:textColor="#0A100D"
         android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/UserProfileTextViewUserName"
-        app:layout_constraintTop_toBottomOf="@+id/userProfileActivityNameTitle" />
+        app:layout_constraintBottom_toTopOf="@+id/UserProfileTextViewUserName"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/UserProfileTextViewFitnessGoal"
@@ -221,14 +207,28 @@
 
     <ImageView
         android:id="@+id/UserProfileImagePicker"
-        android:layout_width="43dp"
-        android:layout_height="54dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_width="137dp"
+        android:layout_height="157dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="72dp"
         android:background="#B60000"
         android:contentDescription="@string/userProfileImg"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_menu_gallery" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="130dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="85dp"
+        android:fontFamily="@font/goldman_bold"
+        android:text="+  Add Picture"
+        android:textColor="#F8F5F5"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/UserProfileTextViewWeight"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

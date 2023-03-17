@@ -32,6 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:layout_marginTop="40dp"
+        android:fontFamily="@font/goldman_bold"
         android:text="Welcome:"
         android:textColor="#0A100D"
         android:textSize="20sp"
@@ -72,11 +73,14 @@
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="166dp"
-        android:layout_height="23dp"
+        android:layout_width="168dp"
+        android:layout_height="67dp"
         android:layout_marginTop="44dp"
+        android:fontFamily="@font/goldman_bold"
         android:text="@string/selectAnExercise"
         android:textAlignment="center"
+        android:textColor="#3E3A3A"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -86,40 +90,43 @@
         android:id="@+id/MainActivityBackButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="161dp"
-        android:layout_marginBottom="70dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/goldman_bold"
         android:text="@string/back"
-        app:layout_constraintBottom_toTopOf="@+id/MainActivityUpperLegsButton"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/MainActivityLowerArmsButton" />
 
     <Button
         android:id="@+id/MainActivityCardioButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="88dp"
+        android:fontFamily="@font/goldman_bold"
         android:text="@string/cardio"
-        app:layout_constraintBottom_toTopOf="@+id/MainActivityShouldersButton"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/MainActivityWaistButton" />
 
     <Button
         android:id="@+id/MainActivityChestButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
-        android:layout_marginEnd="46dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="100dp"
+        android:fontFamily="@font/goldman_bold"
         android:text="@string/chest"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/MainActivityLowerLegsButton" />
+        app:layout_constraintTop_toBottomOf="@+id/MainActivityUpperArmsButton" />
 
     <Button
         android:id="@+id/MainActivityNeckButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/goldman_bold"
         android:text="@string/neck"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
@@ -127,65 +134,67 @@
         android:id="@+id/MainActivityLowerArmsButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/goldman_bold"
         android:text="@string/lowerArms"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
-        app:layout_constraintEnd_toStartOf="@+id/MainActivityUpperArmsButton"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/MainActivityShouldersButton" />
 
     <Button
         android:id="@+id/MainActivityLowerLegsButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="35dp"
+        android:fontFamily="@font/goldman_bold"
         android:text="@string/lowerLegs"
-        app:layout_constraintBottom_toTopOf="@+id/MainActivityBackButton"
-        app:layout_constraintStart_toEndOf="@+id/MainActivityWaistButton" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/MainActivityChestButton" />
 
     <Button
         android:id="@+id/MainActivityShouldersButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="77dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/goldman_bold"
         android:text="@string/shoulders"
-        app:layout_constraintBottom_toTopOf="@+id/MainActivityLowerArmsButton"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/MainActivityNeckButton" />
 
     <Button
         android:id="@+id/MainActivityUpperArmsButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="35dp"
+        android:fontFamily="@font/goldman_bold"
         android:text="@string/upperArms"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/MainActivityLowerArmsButton" />
+        app:layout_constraintTop_toBottomOf="@+id/MainActivityCardioButton" />
 
     <Button
         android:id="@+id/MainActivityUpperLegsButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="18dp"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/goldman_bold"
         android:text="@string/upperLegs"
-        app:layout_constraintBottom_toTopOf="@+id/MainActivityLowerArmsButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/MainActivityBackButton" />
 
     <Button
         android:id="@+id/MainActivityWaistButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="47dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="100dp"
+        android:fontFamily="@font/goldman_bold"
         android:text="@string/waist"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/MainActivityNeckButton" />
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
@@ -204,5 +213,17 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_menu" />
+
+    <Button
+        android:id="@+id/logoutButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:layout_marginEnd="21dp"
+        android:backgroundTint="#112965"
+        android:text="@string/LogoutBtn"
+        app:iconTint="#914949"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -51,9 +51,9 @@ public class WorkOutRecyclerViewAdapter extends RecyclerView.Adapter <WorkOutRec
         String workOutEquipment = workOutList.get(position).getEquipmentUsed();
         //may need to import string to workout image and allow the image to be whichever one is chosen.
         String  workOutImage = workOutList.get(position).getImage();
-        workOutNameView.setText(position + ". " + workOutName);
-        workOutBodyPartView.setText(position + ". " + workOutBodyPart);
-        workOutEquipmentUsedView.setText(position + ". " + workOutEquipment);
+        workOutNameView.setText(position + 1 + ". " + workOutName);
+        workOutBodyPartView.setText(workOutBodyPart);
+        workOutEquipmentUsedView.setText(workOutEquipment);
         workOutImageview.setImageURI(Uri.parse(workOutImage));
         View workOutViewHolder = holder.itemView;
         workOutViewHolder.setOnClickListener(v->{

@@ -32,8 +32,10 @@
         android:layout_marginTop="80dp"
         android:autofillHints=""
         android:ems="10"
+        android:fontFamily="@font/goldman_bold"
         android:hint="@string/userName"
         android:inputType="textPersonName"
+        android:textColor="#020202"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -45,8 +47,10 @@
         android:layout_marginTop="64dp"
         android:autofillHints=""
         android:ems="10"
+        android:fontFamily="@font/goldman_bold"
         android:hint="@string/age"
         android:inputType="number"
+        android:textColor="#020202"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/UserSettingsActivityUserName" />
 
@@ -58,8 +62,10 @@
         android:layout_marginTop="64dp"
         android:autofillHints=""
         android:ems="10"
+        android:fontFamily="@font/goldman_bold"
         android:hint="@string/Weight"
         android:inputType="number"
+        android:textColor="#020202"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/UserSettingsActivityAge" />
 
@@ -71,8 +77,10 @@
         android:layout_marginTop="64dp"
         android:autofillHints=""
         android:ems="10"
+        android:fontFamily="@font/goldman_bold"
         android:hint="@string/Height"
         android:inputType="text"
+        android:textColor="#020202"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/UserSettingsActivityWtInput" />
 
@@ -83,6 +91,7 @@
         android:layout_marginStart="144dp"
         android:layout_marginBottom="72dp"
         android:backgroundTint="#B60000"
+        android:fontFamily="@font/goldman_bold"
         android:text="@string/save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -93,10 +102,12 @@
         android:layout_height="48dp"
         android:layout_marginStart="88dp"
         android:layout_marginTop="64dp"
-        android:ems="10"
         android:autofillHints=""
+        android:ems="10"
+        android:fontFamily="@font/goldman_bold"
         android:hint="@string/targetWeight"
         android:inputType="number"
+        android:textColor="#020202"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/UserSettingsActivityHt" />
 

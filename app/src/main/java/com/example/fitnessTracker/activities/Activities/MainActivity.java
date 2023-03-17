@@ -77,8 +77,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
-
+        logoutButton = findViewById(R.id.logoutButton);
         setupWorkoutButtons();
+        intentButtons();
 
 
 
@@ -120,11 +121,11 @@ public class MainActivity extends AppCompatActivity {
                     finish();
                     return true;
 
-                case R.id.bottom_userworkout:
-                    startActivity(new Intent(getApplicationContext(), UserWorkoutActivity.class ));
-                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-                    finish();
-                    return true;
+//                case R.id.bottom_userworkout:
+//                    startActivity(new Intent(getApplicationContext(), UserWorkoutActivity.class ));
+//                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+//                    finish();
+//                    return true;
 
                 case R.id.bottom_workOutCategory:
                     startActivity(new Intent(getApplicationContext(), WorkOutCategoryActivity.class ));
@@ -140,6 +141,7 @@ public class MainActivity extends AppCompatActivity {
             }
             return false;
         });
+        setupButtons();
 
     }
 
@@ -156,34 +158,36 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void renderButtons() {
-        final String[] username = {preferences.getString(USER_NAME_TAG, "no username")};
 
         if (authUser != null) {
             logoutButton.setVisibility(View.VISIBLE);
         } else {
             logoutButton.setVisibility(View.INVISIBLE);
         }
-        Amplify.Auth.getCurrentUser(
-                success -> {
-                    Log.i(TAG, "Got Current User");
-                    username[0] = success.getUsername();
-                },
-                failure -> {
-                }
-        );
-
-        logoutButton.setOnClickListener(v -> Amplify.Auth.signOut(
-                success -> {
-                    Log.i(TAG, "User successfully logged out.");
-                    authUser = null;
-                    runOnUiThread(this::renderButtons);
-                    Intent goToLoginActivityIntent = new Intent(this, LoginActivity.class);
-                    startActivity(goToLoginActivityIntent);
-                }
-        ));
     }
 
+        public void intentButtons() {
+            final String[] username = {preferences.getString(USER_NAME_TAG, "no username")};
+            Amplify.Auth.getCurrentUser(
+                    success -> {
+                        Log.i(TAG, "Got Current User");
+                        username[0] = success.getUsername();
+                    },
+                    failure -> {
+                    }
+            );
 
+            logoutButton.setOnClickListener(v -> Amplify.Auth.signOut(
+                    success -> {
+                        Log.i(TAG, "User successfully logged out.");
+                        authUser = null;
+                        runOnUiThread(this::renderButtons);
+                        Intent goToLoginActivityIntent = new Intent(this, LoginActivity.class);
+                        startActivity(goToLoginActivityIntent);
+                    }
+            ));
+
+        }
 
 
 //        ImageView userProfileButton = (ImageView) findViewById(R.id.MainActivityUserProfileBtn);
@@ -207,6 +211,11 @@ public class MainActivity extends AppCompatActivity {
 //            startActivity(goToUserSettingsIntent);
 //        });
 //    }
+public void setupButtons() {
+
+    // logout button
+
+}
 
     public void setupWorkoutButtons(){
         Button cardioButton = this.findViewById(R.id.MainActivityCardioButton);
